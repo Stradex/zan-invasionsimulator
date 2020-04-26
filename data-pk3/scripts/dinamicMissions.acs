@@ -1,0 +1,61 @@
+/*BASE de dinamic missions*/
+
+#include "dinamicMissionsDefs.acs"
+#include "idiomas.acs"
+#include "DMInvasion.acs"
+
+script DMISSIONS_START (void)
+{
+	int i, j;
+	int rand = GetCVar("cv_gmtime") % 256;
+    for (i = 0; i < rand; i++) Random(0,255);
+	
+	DMLanguage = getIdioma(GetCvarString("sv_slang"));
+	//DMCurrentMission = random(0, DMISSIONS_PRIMISSIONS-1);
+	DMCurrentMission = DMISSIONS_INVASION;
+	
+	SetFont("BIGFONT");
+	HudMessageBold(s:strDMMissionsMessages[DMCurrentMission][DMLanguage]; HUDMSG_PLAIN, DMMSGS_MISSION, CR_RED, 1.5, 0.15, 10.0);
+	ACS_ExecuteAlways(DMISSIONS_STATEMSG, 0);
+	
+	/*#libdefine DMISSIONS_INVASION		0
+#libdefine DMISSIONS_DOCUMENTOS		1
+#libdefine DMISSIONS_SIGNAL			2
+*/
+	Switch (DMCurrentMission)
+	{
+		case DMISSIONS_INVASION:
+			ACS_ExecuteAlways(DMINVASION_START, 0);
+		break;
+		case DMISSIONS_DOCUMENTOS:
+			ACS_ExecuteAlways(DMINVASION_START, 0); //Cambiar en la proxima build
+		break;
+		case DMISSIONS_SIGNAL:
+			ACS_ExecuteAlways(DMINVASION_START, 0); //cambiar en el proximo build
+		break;
+		default:
+		//DMISSIONS_INVASION
+		
+		break;
+	}
+}
+
+script DMISSIONS_STATEMSG (void)
+{
+	do
+	{
+		HudMessageBold(s:strDMMissionsMiniMsgs[DMCurrentMission][DMLanguage]; HUDMSG_PLAIN, DMMSGS_STATE, CR_GOLD, 1.9, 0.72, 0);
+		//Solo para el invasionSimulator
+		if (dminvasionFase >= wavesByDifficulty[dmdificultad])
+		{
+			HudMessageBold(s:strInvasionFinalizada[DMLanguage]; HUDMSG_PLAIN, DMMSGS_WAVESTATE, CR_GOLD, 1.9, 0.78, 0);
+			HudMessageBold(s:strExitState[DMLanguage][1]; HUDMSG_PLAIN, DMMSGS_EXITSTATE, CR_GREEN, 1.9, 0.81, 0);
+			//HudMessageBold(s:""; HUDMSG_PLAIN, DMMSGS_PROGRESS, CR_GOLD, 1.9, 0.75, 1.0);
+		} else {
+			HudMessageBold(s:strWaves[DMLanguage], d:(dminvasionFase+1), s:"/", d:wavesByDifficulty[dmdificultad]; HUDMSG_PLAIN, DMMSGS_WAVESTATE, CR_GOLD, 1.9, 0.78, 0);
+			HudMessageBold(s:strExitState[DMLanguage][0]; HUDMSG_PLAIN, DMMSGS_EXITSTATE, CR_RED, 1.9, 0.81, 0);
+			//HudMessageBold(s:strProgress[DMLanguage], d:waveProgress, s:"%"; HUDMSG_PLAIN, DMMSGS_PROGRESS, CR_GOLD, 1.9, 0.75, 0);
+		}
+		delay(175);
+	}while(1);
+}

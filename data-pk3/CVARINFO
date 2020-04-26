@@ -1,0 +1,19 @@
+server string dm_lang = "EN";
+server int is_skill = 3;
+server float is_wavemultiplier = 1.0;
+server int is_wavestart = 0;
+server bool is_skipwhenlose	= false;
+server bool is_givemega	= true;
+//Si es true, solo se spawnean bichos vanilla
+
+/*Dificultad de 0 a 5.
+
+0: Dificultad promedio: La mitad de los bichos normales (solo vanilla) NADA de dinamic doom activado y pocos monstruos (Sin multiplo de bichos por jugadores) - 3 Waves
+1: Facilisimo: Los mismos bichos que lo normal pero sin NADA de dinamic activado y sin multiplo de bichos por jugadores						   - 4 Waves
+2: Facil: Los mismos bichos que lo normal con todo lo de dinamic activado (menos betruger) y sin multiplo de bichos por jugadores			   - 5 waves
+3: Normal: Bichos normales, multiplo de bichos por jugadores y todo lo de dinamic activado (menos betruger)									   - 6 waves	
+4: Dificil: Como la esta ahora, osea con betruger y toda la miercole [No esta hecha todavia]																		   - 6 waves
+5: Nightmare: Igual que dificil pero con un wave más - 7 Waves  [No esta hecha todavia]	
+6: TumodesunamierdaComplexesmejor: No da nada de megasphere ni respawn de vida, no existe la BFG (da hasta plasma)	   - 9 waves
+
+*/		

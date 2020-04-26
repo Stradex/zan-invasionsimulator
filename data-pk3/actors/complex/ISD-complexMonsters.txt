@@ -1,0 +1,875 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+Actor INVSIPlasmaGunner : PlasmaGunner replaces PlasmaGunner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIRailGunner : RailGunner replaces RailGunner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDemonTechZombie : DemonTechZombie replaces DemonTechZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIRocketZombie : RocketZombie replaces RocketZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIShotgunZombie : ShotgunZombie replaces ShotgunZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIAssaultShotgunZombie : AssaultShotgunZombie replaces AssaultShotgunZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSISuperShotgunZombie : SuperShotgunZombie replaces SuperShotgunZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIQuadShotgunZombie : QuadShotgunZombie replaces QuadShotgunZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIAssaultRifleZombie : AssaultRifleZombie replaces AssaultRifleZombie
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIChaingunner : Chaingunner replaces Chaingunner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIMinigunner : Minigunner replaces Minigunner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBFGZombieman : BFGZombieman replaces BFGZombieman
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIVoidImp : VoidImp replaces VoidImp
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDevil : Devil replaces Devil
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPhaseImp : PhaseImp replaces PhaseImp
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBullFiend : BullFiend replaces BullFiend
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICyberFiend : CyberFiend replaces CyberFiend
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIMagmaFiend : MagmaFiend replaces MagmaFiend
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDTechFiend : DTechFiend replaces DTechFiend
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSISpectre~ : Spectre~ replaces Spectre~
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSILurker : Lurker replaces Lurker
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSISpook : Spook replaces Spook
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSITerrorSoul : TerrorSoul replaces TerrorSoul
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIForgottenOne : ForgottenOne replaces ForgottenOne
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPoisonSoul : PoisonSoul replaces PoisonSoul
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIRictus : Rictus replaces Rictus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICacodemon~ : Cacodemon~ replaces Cacodemon~
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIWatcher : Watcher replaces Watcher
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICacomental : Cacomental replaces Cacomental
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSISoulKeeper : SoulKeeper replaces SoulKeeper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDefiler : Defiler replaces Defiler
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPoisonElemental : PoisonElemental replaces PoisonElemental
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBombElemental : BombElemental replaces BombElemental
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSIHectebus : Hectebus replaces Hectebus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+
+Actor INVSIDaedabus : Daedabus replaces Daedabus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBehemoth : Behemoth replaces Behemoth
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBarbatos : Barbatos replaces Barbatos
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDualachnotron : Dualachnotron replaces Dualachnotron
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIFusionite : Fusionite replaces Fusionite
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBabyDemolisher : BabyDemolisher replaces BabyDemolisher
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBabySentient : BabySentient replaces BabySentient
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIGuardian : Guardian replaces Guardian
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICadaver : Cadaver replaces Cadaver
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIHellfireRevenant : HellfireRevenant replaces HellfireRevenant
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIFamine : Famine replaces Famine
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIHellKnight~ : HellKnight~ replaces HellKnight~
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPyroDemon : PyroDemon replaces PyroDemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICyberNoble : CyberNoble replaces CyberNoble
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIHellDuke : HellDuke replaces HellDuke
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBaronOfHell~ : BaronOfHell~ replaces BaronOfHell~
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBruiserDemon : BruiserDemon replaces BruiserDemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICybruiser : Cybruiser replaces Cybruiser
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIExile : Exile replaces Exile
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDiabolist : Diabolist replaces Diabolist
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDarkHellion : DarkHellion replaces DarkHellion
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDemolisher : Demolisher replaces Demolisher
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDarkDemolisher : DarkDemolisher replaces DarkDemolisher
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICerebralSentient : CerebralSentient replaces CerebralSentient
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICyberLord : CyberLord replaces CyberLord
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIDarkCyberdemon : DarkCyberdemon replaces DarkCyberdemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICardinal : Cardinal replaces Cardinal
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIGuard : Guard replaces Guard
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSIMutant : Mutant replaces Mutant
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}*/
+
+Actor INVSIOfficer : Officer replaces Officer
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINaziDog : NaziDog replaces NaziDog
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSIHitler : Hitler replaces Hitler
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSIHitlerNoSuit : HitlerNoSuit replaces HitlerNoSuit
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}

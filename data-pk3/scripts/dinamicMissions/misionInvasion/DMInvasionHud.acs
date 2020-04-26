@@ -1,0 +1,92 @@
+#libdefine IS_MAXHUDWAVEIMGS			20
+
+str strWaveStatusBarHud[IS_MAXHUDWAVEIMGS] = 
+{
+	"ISPERA",
+	"ISPERB",
+	"ISPERC",
+	"ISPERD",
+	"ISPERE",
+	"ISPERF",
+	"ISPERG",
+	"ISPERH",
+	"ISPERI",
+	"ISPERJ",
+	"ISPERK",
+	"ISPERL",
+	"ISPERM",
+	"ISPERN",
+	"ISPERO",
+	"ISPERP",
+	"ISPERQ",
+	"ISPERR",
+	"ISPERS",
+	"ISPERT"
+};
+/*
+str strProgress[DMISSIONS_LANGUAGE] = {
+	"Progreso de la ronda: ",
+	"Wave progress: "
+};
+*/
+
+str strWeaponAcquiredHUD[DMISSIONS_LANGUAGE] = {
+	"ISWAES",
+	"ISWAEN"
+};
+
+function str getWaveStatusHUD(int wavePercent)
+{
+	int i;
+	wavePercent = intToFixed(wavePercent);
+	int maxHuds = intToFixed(IS_MAXHUDWAVEIMGS-1);
+	
+	int hudIndex = fixedRound(FixedDiv(FixedMul(wavePercent, maxHuds), 100.0));
+	
+	if (hudIndex < 0)
+		hudIndex = 0;
+	else if (hudIndex >= IS_MAXHUDWAVEIMGS)
+		hudIndex = IS_MAXHUDWAVEIMGS-1;
+	
+	return strWaveStatusBarHud[hudIndex];
+}
+
+
+script DMINVASION_SERVERHUD	 (void)
+{
+	//str hudWaveStatusToShow="";
+	do
+	{
+		//waveProgress
+		//DMMSGS_PERCENTWAVE
+		SetHudSize(800, 600, false);
+		SetFont("SMALLFONT");
+		if (dminvasionCountdown)
+		{
+			HudMessageBold(s:""; HUDMSG_PLAIN, DMMSGS_PERCENTWAVE, CR_RED, 400.0, 40.0, 0);
+			HudMessageBold(s:""; HUDMSG_PLAIN, DMMSGS_PERCENTTXT, CR_WHITE, 400.0, 15.0, 0);
+		} else {
+			SetFont(getWaveStatusHUD(waveProgress));
+
+			HudMessageBold(s:"A"; HUDMSG_PLAIN, DMMSGS_PERCENTWAVE, CR_RED, 400.0, 40.0, 0);
+			SetFont("SMALLFONT");
+			HudMessageBold(s:"Wave Progress"; HUDMSG_PLAIN, DMMSGS_PERCENTTXT, CR_WHITE, 400.0, 15.0, 0);
+
+		}
+		delay(53); //El HUD se actualiza cada segundo y medio
+	}while(1);
+}
+
+script DMINVASION_HUDWEAPONCS (int csLang) CLIENTSIDE
+{
+	if (PlayerNumber() != ConsolePlayerNumber()) 
+		terminate;
+	
+	
+	SetHudSize(800, 600, FALSE);
+
+	SetFont(strWeaponAcquiredHUD[csLang]);
+	HudMessage(s:"A"; HUDMSG_FADEINOUT, DMMSGS_WEAPONHUD, CR_RED, 100.0, 150.0, 2.0, 1.5, 1.5);
+
+	SetFont("SMALLFONT");
+}

@@ -1,0 +1,95 @@
+//Para la version de Samsara 0.31 beta
+
+//Doom
+actor Archvile2 { }
+actor BaronOfHell2 { }
+actor SpiderMastermind2 { }
+actor Cacodemon2 { }
+actor ChaingunGuy2 { }
+actor DoomDemon2 { }
+actor Fatso2 { }
+actor DoomImp2 { }
+actor Nazi2 { }
+actor Revenant2 { }
+actor ShotgunGuy2 { }
+actor LostSoul2 { }
+actor Arachnotron2 { }
+actor Zombieman2 { }
+actor Spectre2 { }
+
+//Strife [Version 0.2 del invasion simulator, compatible multiple I-WAD]
+actor Acolyte2 { }
+actor AcolyteTan2 { }
+actor AcolyteRed2 { }
+actor AcolyteGold2 { }
+actor AcolyteGray2 { }
+actor AcolyteDGreen2 { }
+actor AcolyteLGreen2 { }
+actor AcolyteRust2 { }
+actor AcolyteShadow2 { }
+actor AcolyteToBe2 { }
+actor AcolyteBlue2 { }
+actor FriendlyDoomImp { }
+actor FriendlyNitrogolem { }
+actor FriendlyFlemoid { }
+actor FriendlyNazi { }
+actor FriendlyAfrit { }
+actor FriendlyAlienTrooper { }
+actor FriendlyPfhorTrooper { }
+actor FriendlyGrunt { }
+actor Crusader2 { }
+actor Macil2B { }
+actor StrifeBishop2 { }
+actor Loremaster2 { }
+actor Programmer2 { }
+actor PeasantB { }
+actor RebelB { }
+actor Sentinel2 { }
+actor Stalker2 { }
+actor CeilingTurret2 { }
+actor AlienSpectre1B { }
+actor AlienSpectre2B { }
+actor AlienSpectre3B { }
+actor AlienSpectre4B { }
+actor AlienSpectre5B { }
+actor SamsaraSpectre1 { }
+actor SamsaraSpectre2 { }
+actor SamsaraSpectre3 { }
+actor SamsaraSpectre4 { }
+actor SamsaraSpectre5 { }
+actor Templar2 { }
+
+//Heretic [Version 0.2 del invasion simulator, compatible multiple I-WAD]
+actor HereticImp2 { }
+actor HereticImpLeader2 { }
+actor Mummy2 { }
+actor MummyLeader2 { }
+actor Knight2 { }
+actor KnightGhost2 { }
+actor Wizard2 { }
+actor Clink2 { }
+actor Beast2 { }
+actor Snake2 { }
+actor IronLich2 { }
+actor Minotaur2 { }
+actor Sorcerer3 { }
+actor Sorcerer4 { }
+
+//Hexen [Version 0.2 del invasion simulator, compatible multiple I-WAD]
+actor FireDemon2 { }
+actor Ettin2 { }
+actor Centaur2 { }
+actor CentaurLeader2 { }
+actor Demon1B { }
+actor Demon2B { }
+actor IceGuy2 { }
+actor Serpent2 { }
+actor SerpentLeader2 { }
+actor Bishop2 { }
+actor Wraith2 { }
+actor Dragon2 { }
+actor Heresiarch2 { }
+actor FighterBoss2 { }
+actor ClericBoss2 { }
+actor MageBoss2 { }
+actor Korax2 { }

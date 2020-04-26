@@ -1,0 +1,302 @@
+/*
+ACTOR INVSIBeak : _INVSIBeak  replaces _INVSIBeak
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+  
+ACTOR INVSIBeakPowered : _INVSIBeakPowered replaces _INVSIBeakPowered
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+  
+ACTOR INVSIBlaster : _INVSIBlaster replaces _INVSIBlaster
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIBlasterPowered : _INVSIBlasterPowered replaces _INVSIBlasterPowered
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+  
+ACTOR INVSICrossbow : _INVSICrossbow replaces _INVSICrossbow
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSICrossbowPowered : _INVSICrossbowPowered replaces _INVSICrossbowPowered
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGauntlets : _INVSIGauntlets replaces _INVSIGauntlets
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGauntletsPowered : _INVSIGauntletsPowered replaces _INVSIGauntletsPowered
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+*/
+ACTOR INVSIBagOfHolding : _INVSIBagOfHolding replaces _INVSIBagOfHolding
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSICrystalVial : _INVSICrystalVial replaces _INVSICrystalVial
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+//aca
+ACTOR INVSIEnchantedShield : _INVSIEnchantedShield replaces _INVSIEnchantedShield
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSISilverShield : _INVSISilverShield replaces _INVSISilverShield
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+
+ACTOR INVSISuperMap : _INVSISuperMap replaces _INVSISuperMap
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+
+ACTOR INVSIArtiHealth : _INVSIArtiHealth replaces _INVSIArtiHealth
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIArtiInvisibility : _INVSIArtiInvisibility replaces _INVSIArtiInvisibility
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIArtiSuperHealth : _INVSIArtiSuperHealth replaces _INVSIArtiSuperHealth
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIArtiTomeOfPower : _INVSIArtiTomeOfPower replaces _INVSIArtiTomeOfPower
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIBlasterHefty : _INVSIBlasterHefty replaces _INVSIBlasterHefty
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSICrossbowHefty : _INVSICrossbowHefty replaces _INVSICrossbowHefty
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGoldWandHefty : _INVSIGoldWandHefty replaces _INVSIGoldWandHefty
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMaceHefty : _INVSIMaceHefty replaces _INVSIMaceHefty
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIPhoenixRodHefty : _INVSIPhoenixRodHefty replaces _INVSIPhoenixRodHefty
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSISkullRodHefty : _INVSISkullRodHefty replaces _INVSISkullRodHefty
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}

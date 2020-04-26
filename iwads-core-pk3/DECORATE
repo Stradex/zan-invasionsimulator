@@ -1,0 +1,8 @@
+#include "actors/game_doom/IS-doomItems.txt"
+#include "actors/game_doom/IS-doomMonsters.txt"
+
+#include "actors/game_heretic/IS-hereticItems.txt"
+#include "actors/game_heretic/IS-hereticMonsters.txt"
+
+#include "actors/game_strife/IS-strifeItems.txt"
+#include "actors/game_strife/IS-strifeMonsters.txt"

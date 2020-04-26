@@ -1,0 +1,31 @@
+//Samsara v0.31 beta
+#include "actors/samsara/IS-samsaraItems.txt"
+#include "actors/samsara/IS-samsaraMonsters.txt"
+
+//stwolf3dv4
+#include "actors/stwolf/IS-stwolfItems.txt"
+#include "actors/stwolf/IS-stwolfMonsters.txt"
+
+//Brutal Doom v20b
+#include "actors/brutal/IS-brutalItems.txt"
+#include "actors/brutal/IS-brutalMonsters.txt"
+
+//Plutonia Simulator 1.2
+#include "actors/psimulator/IS-psimulatorItems.txt"
+#include "actors/psimulator/IS-psimulatorMonsters.txt"
+
+//MSPaintDoom beta 6
+#include "actors/mspaint/IS-mspaintMonsters.txt"
+#include "actors/mspaint/IS-mspaintItems.txt"
+
+//Brutal Doom 64 v2mpfix
+#include "actors/bd64/IS-bd64Monsters.txt"
+#include "actors/bd64/IS-bd64Items.txt"
+
+//Hard Doom v69
+#include "actors/harddoom/IS-hdItems.txt"
+#include "actors/harddoom/IS-hdMonsters.txt"
+
+//Complex v26a2
+#include "actors/complex/IS-complexItems.txt"
+#include "actors/complex/IS-complexMonsters.txt"

@@ -1,0 +1,511 @@
+#libdefine ISPLAYERCLASSES		32
+#libdefine ISWEAPONTYPES		6
+#libdefine ISAMMOTYPES			6
+#libdefine MAXUDOOMMAPS			42
+
+str doomMaps[MAXUDOOMMAPS] = 
+{
+	"E1M1",
+	"E1M2",
+	"E1M3",
+	"E1M4",
+	"E1M5",
+	"E1M6",
+	"E1M7",
+	"E1M8",
+	"E1M9",
+	"E2M1",
+	"E2M2",
+	"E2M3",
+	"E2M4",
+	"E2M5",
+	"E2M6",
+	"E2M7",
+	"E2M8",
+	"E2M9",
+	"E3M1",
+	"E3M2",
+	"E3M3",
+	"E3M4",
+	"E3M5",
+	"E3M6",
+	"E3M7",
+	"E3M8",
+	"E3M9",
+	"E4M4",
+	"E4M5",
+	"E4M6",
+	"E4M7",
+	"E4M8",
+	"E4M9",
+	"E5M1",
+	"E5M2",
+	"E5M3",
+	"E5M4",
+	"E5M5",
+	"E5M6",
+	"E5M7",
+	"E5M8",
+	"E5M9"
+};
+
+function bool isUltimateDoom(void)
+{
+	int i;
+	str cMap = getCurrentMapName();
+	for (i=0; i < MAXUDOOMMAPS; i++)
+	{
+		if (StrICmp(doomMaps[i], cMap) == 0)
+			return true;
+	}
+	return false;
+}
+
+function int CheckIWAD (void)
+{
+    int testTID = UniqueTID();
+    SpawnForced("MapSpot",GetActorX(0),GetActorY(0),GetActorZ(0),testTID,0);
+    Thing_SpawnNofog(testTID,255,0,testTID);    
+	int Retorno = IWAD_DOOM;
+    if(ThingCountName("DoomCheck",0))
+    {
+		if (isUltimateDoom())
+			Retorno = IWAD_UDOOM; //Ultimate Doom [Doom I]
+		else
+			Retorno = IWAD_DOOM; //Doom II
+    }
+    if(ThingCountName("HereticCheck",0))
+    {
+       Retorno = IWAD_HERETIC;
+    }
+    if(ThingCountName("HexenCheck",0))
+    {
+        Retorno = IWAD_HEXEN;
+    }
+    if(ThingCountName("StrifeCheck",0))
+    {
+        Retorno = IWAD_STRIFE;
+    }
+    if(ThingCountName("ChexCheck",0))
+    {
+        Retorno = IWAD_CHEX;
+    }
+	
+	//if (
+	
+    Thing_Remove(testTID);
+	return Retorno;
+} 
+
+
+//Terminar despues
+str playerClasses[ISPLAYERCLASSES] = 
+{
+	"DoomguyPlayer", 		//Samsara v0.31 beta
+	"WolfenPlayer", 		//Samsara v0.31 beta
+	"CorvusPlayer", 		//Samsara v0.31 beta
+	"ChexWarrior", 			//Samsara v0.31 beta
+	"DukePlayer", 			//Samsara v0.31 beta
+	"MarathonPlayer", 		//Samsara v0.31 beta
+	"HexenPlayer", 			//Samsara v0.31 beta
+	"QuakePlayer", 			//Samsara v0.31 beta
+	"WolfPlayer", 			//STWOLF3DV4
+	"Doom64GuyPlayer", 		//Samsara ex-hbb3 x
+	"Caleb",		   		//Samsara ex-hbb3 x
+	"HalfLifePlayer",  		//Samsara ex-hbb3 x
+	"DisruptorPlayer", 		//Samsara ex-hbb3 x
+	"BlakeStone",	   		//Samsara ex-hbb3 x
+	"Corridor7Player", 		//Samsara ex-hbb3 x
+	"Eleena",		  		//Samsara ex-hbb3 x
+	"IPFreeley",			//Samsara ex-hbb3 x
+	"GrondovalPlayer",		//Samsara ex-hbb3 x
+	"KatarnPlayer",			//Samsara ex-hbb3 x
+	"LoWangPlayer",			//Samsara ex-hbb3 x
+	"POGreedPlayer",		//Samsara ex-hbb3 x
+	"RebelMoonCommando",	//Samsara ex-hbb3 x
+	"CMPlayer",				//Samsara ex-hbb3 x
+	"PSPlayer",				//Samsara ex-hbb3 x
+	"Leonard",				//Samsara ex-hbb3
+	"Doomer",				//Brutal Doom v20b
+	"Purist",				//Brutal Doom v20b
+	"PaintPlayer",			//MSPaintDoom beta 6
+	"64DoomPlayer",			//Doom 64 player
+	"Tactical64DoomPlayer",	//Doom 64 player
+	"DoomMarine",			//Hard Doom v69
+	"ComplexDoomPlayer"		//Complex v26a2
+};
+
+function int getCurrentPlayerClass(str pClass)
+{
+	int i;
+	for (i=0; i < ISPLAYERCLASSES; i++)
+	{
+		if (StrICmp(pClass, playerClasses[i]) == 0)
+			return (i+1);
+	}
+	return 0;
+}
+
+/*
+
+IWAD_DOOM		0
+IWAD_HERETIC	1
+IWAD_HEXEN		2
+IWAD_STRIFE		3
+IWAD_CHEX		4
+IWAD_UDOOM		5
+*/
+str iwadWeaponAdaptions[ISWEAPONTYPES][MAXIWADS] = 
+{
+	{"Pistol", "BeakPowered", "Clip", "StrifeCrossbow", "Clip", "Pistol"}, 
+	{"Shotgun", "Crossbow", "Clip", "AssaultGun", "Clip", "Shotgun"}, 
+	{"SuperShotgun", "Gauntlets", "Clip", "Mauler", "Clip", "Chaingun"}, 
+	{"Chaingun", "Blaster", "Clip", "MiniMissileLauncher", "Clip", "Chaingun"}, 
+	{"RocketLauncher", "SkullRod", "Clip", "Sigil", "Clip", "RocketLauncher"},
+	{"PlasmaRifle", "GoldWand", "Clip", "Sigil5", "Clip", "PlasmaRifle"}
+};
+
+str weaponAdaptions[ISWEAPONTYPES][ISPLAYERCLASSES+1] =
+{
+	//DoomGuyOriginal
+	{"Pistol",
+	//Samsara v0.31 beta
+	" Pistol ", "Luger", "Elven Wand", "Mini-Zorcher", "Glock 17", ".44 Magnum Mega Class A1", "Sapphire Wand", "Single Shotgun", 
+	//STWOLF3DV4
+	"WolfPistol",
+	//Samsara ex-hbb3
+	"  Pistol  ", "   Revolver   ", "9mm Pistol", " 18mm Semi ", "Auto Charge Pistol", "Taser", "  Ripper Disc  ", "RPistol",
+	"Bow and Arrows", "Bryar Pistol", "SWShuriken", " Aldus Pistol ", " Laser Pistol ", "CMLaserPistol", "PSMagnum", " .454 Casull Pistol ",
+	//Brutal Doom v20b
+	"BrutalPistol", "ClassicPistol",
+	//MSPaintDoom
+	"NewPistol", 
+	//Doom 64 mod
+	"64Pistol", "64RifleTactical",
+	//Hard Doom v69
+	"Pistol~",
+	//Complex Doom
+	"Handgun"},
+	
+	//DoomguyOriginal
+	{"Shotgun",
+	//Samsara v0.31 beta
+	" Shotgun ", "Machine Gun", " Firemace ", "Large Zorcher", "  Shotgun  ", "WSTE-M5 Combat Shotgun", "Frost Shards", "Double Shotgun",
+	//STWOLF3DV4
+	"WolfMachineGun",
+	//Samsara ex-hbb3
+	"   Shotgun   ", "Flaregun", ".357 Python", " Phase Rifle ", "Slow Fire Protector", "M343Vulcan", "  Sonic Shock  ", "MP40",
+	"Battle Axe", "Stormtrooper Rifle", "SWGrenade", " Plasma Shotgun ", "ACR Laser Rifle", "CMFusionGun", "ExShotgun", " RR Hunting Crossbow ",
+	//Brutal Doom v20b
+	"Shot_Gun", "ClassicShotgun",
+	//MSPaintDoom
+	"NewShotgun", 
+	//Doom 64 mod
+	"64Shotgun", "64ShotgunTACTICAL",
+	//Hard Doom v69
+	"Shotgun~",
+	//Complex Doom
+	"Combat Shotgun"},
+	
+	//DoomguyOriginal
+	{"SuperShotgun",
+	//Samsara v0.31 beta
+	"Super Shotgun", "Machine Gun", "Ethereal Crossbow", "Super Large Zorcher", "Explosive Shotgun", "Fusion Pistol", "Timon's Axe", "Grenade Launcher",
+	//STWOLF3DV4
+	"WolfMachineGun",
+	//Samsara ex-hbb3
+	" Super Shotgun ", "Sawedoff", "Assault Shotgun", " AM Blaster ", "Heavy Assault Rifle", "AssaultShotgun", "Pellet Bomb", "Bazooka",
+	"Pike Axe", "Fusion Cutter", "SWRiotgun", " Aldus Flamethrower ", "ACR ADD-ON", "CMBlastRifle", "PSFlamethrower", " Scattered Gun ",
+	//Brutal Doom v20b
+	"SSG", "ClassicSSG",
+	//MSPaintDoom
+	"NewSuperShotgun", 
+	//Doom 64 mod
+	"64SuperShotgun", "64SuperShotgun",
+	//Hard Doom v69
+	"SuperShotgun~",
+	//Complex Doom
+	"Double Barrel Shotgun"},
+
+	//DoomguyOriginal	
+	{"Chaingun",
+	//Samsara v0.31 beta
+	" Chaingun ", "  Chaingun  ", "Dragon Claw", "Rapid Zorcher", "Chaingun Cannon", "MA-75B Assault Rifle", "Serpent Staff", "Nailgun",
+	//STWOLF3DV4
+	"WolfMachineGun",
+	//Samsara ex-hbb3
+	"   Chaingun   ", "Tommygun", "MP5", "Phase Repeater", "Rapid Assault Rifle", "AlienDualBlaster", "  Dart Cannon  ", "Split Missile",
+	"Ice Halberd", "Imperial Repeater", "SWUzi", " Fast Chaingun ", "Cyclops Particle Accelerator", "CMSMG", "PSM60", " Ranch Rifle ",
+	//Brutal Doom v20b
+	"MiniGun", "ClassicChaingun",
+	//MSPaintDoom
+	"NewChaingun", 
+	//Doom 64 mod
+	"64Chaingun", "64ChaingunTactical",
+	//Hard Doom v69
+	"Chaingun~",
+	//Complex Doom
+	"Minigun "},
+	
+	//DoomguyOriginal	
+	{"RocketLauncher",
+	//Samsara v0.31 beta
+	"Rocket Launcher", " Rocket Launcher ", "Phoenix Rod", "Zorch Propulsor", "RPG", "SPNKR-XP SSM Launcher", "Hammer of Retribution", "  Rocket Launcher  ",
+	//STWOLF3DV4
+	"WolfChaingun",
+	//Samsara ex-hbb3
+	"   Rocket Launcher   ", "NapalmLauncher", " RPG ", " Lock-on Cannon ", "Plasma Discharge Unit", "AlienPlasmaRifle", "    Missile Launcher    ", " Firebomb ",
+	"Fire Mace", "Mortar Gun", "SWMissileLauncher", " Fast Rocket Launcher ", "RMR Grenade Launcher", "CMRocketGun", "PSCobraStaff", " Chicken Crossbow ",
+	//Brutal Doom v20b
+	"Rocket_Launcher", "ClassicRocketLauncher",
+	//MSPaintDoom
+	"NewRocketLauncher", 
+	//Doom 64 mod
+	"64RocketLauncher", "64RocketLauncherTACTICAL",
+	//Hard Doom v69
+	"RocketLauncher~",
+	//Complex Doom
+	"Rocket Launcher"},
+
+	//DoomguyOriginal		
+	{"PlasmaRifle", 
+	//Samsara v0.31 beta
+	"Plasma Rifle", " Flamethrower ", "Hellstaff", "Phasing Zorcher", "Freezethrower", "TOZT-7 Napalm Unit", "Firestorm", "Super Nailgun",
+	//STWOLF3DV4
+	"WolfChaingun",
+	//Samsara ex-hbb3
+	" Plasma Rifle ", "TeslaCannon", "Gauss Cannon", " AM Cyclone ", "Dual Neutron Disruptor", "AlienAssaultCannon", "Napalm Charge", "DrunkMissiles",
+	"Frozen Two-Hand Sword", "Concussion Rifle", " SWRailgun ", " Laser Cannon ", "RMR Railgun", "CMHVBMG", "Sacred Manacle", " Alien Bra Gun ",
+	//Brutal Doom v20b
+	"Plasma_Gun", "ClassicPlasmaRifle",
+	//MSPaintDoom
+	"NewPlasmaRifle", 
+	//Doom 64 mod
+	"64PlasmaRifle", "64PlasmaRifleTACTICAL",
+	//Hard Doom v69
+	"PlasmaRifle~",
+	//Complex Doom
+	"Plasma Rifle"}
+};
+
+function int getISWeaponIndex(str cWeaponClass)
+{
+	int i;
+	for (i=0; i < ISWEAPONTYPES; i++)
+	{
+		if (StrICmp(cWeaponClass, weaponAdaptions[i][0]) == 0)
+			return i;
+	}
+	return 0;
+}
+
+function str getWeaponAdaption(int indexClass, str oWeapon)
+{
+	int i;
+	
+	if (indexClass <= 0)
+		return oWeapon;
+		
+	for (i=0; i < ISWEAPONTYPES; i++)
+	{
+		if (StrICmp(oWeapon, weaponAdaptions[i][0]) == 0)
+			return weaponAdaptions[i][indexClass];
+	}
+	
+	return oWeapon;
+}
+
+/*
+
+IWAD_DOOM		0
+IWAD_HERETIC	1
+IWAD_HEXEN		2
+IWAD_STRIFE		3
+IWAD_CHEX		4
+IWAD_UDOOM		5
+*/
+str iwadAmmoAdaptions[ISAMMOTYPES][MAXIWADS] = 
+{
+	{"Clip", "BlasterAmmo", "Clip", "ElectricBolts", "Clip", "Clip"}, 
+	{"Shell", "CrossbowAmmo", "Clip", "ClipOfBullets", "Clip", "Shell"}, 
+	{"Shell", "CrossbowAmmo", "Clip", "EnergyPod", "Clip", "Clip"}, 
+	{"Clip", "BlasterAmmo", "Clip", "EnergyPod", "Clip", "Clip"}, 
+	{"RocketAmmo", "SkullRodAmmo", "Clip", "MiniMissiles", "Clip", "RocketAmmo"},
+	{"Cell", "GoldWandAmmo", "Clip", "HEGrenadeRounds", "Clip", "Cell"}
+};
+
+str ammoAdaptions[ISAMMOTYPES][ISPLAYERCLASSES+1] =
+{
+	//DoomguyOriginal
+	{"Clip",
+	//Samsara v0.31 beta
+	"Clip", "Clip", "Clip", "Clip", "Clip", "MagnumBullet", "Clip", "Shell",
+	//STWOLF3DV4
+	"WolfClip",
+	//Samsara ex-hbb3
+	"Clip", "Clip", "HL9mmCounter", "Clip", "Clip", "Clip", "Clip", "Clip",
+	"Clip", "Clip", "Clip", "Clip", "Clip", "Clip", "Clip", "Clip",
+	//Brutal Doom v20b
+	"Clip", "Clip",
+	//MSPaintDoom
+	"Clip", 
+	//Doom 64 mod
+	"Clip", "Clip",
+	//Hard Doom v69
+	"Clip",
+	//Complex Doom
+	"PistolMagazine"},
+
+	
+	//DoomguyOriginal
+	{"Shell",
+	//Samsara v0.31 beta
+	"Shell", "Clip", "Shell", "Shell", "Shell", "Shell", "Clip", "Shell",
+	//STWOLF3DV4
+	"WolfClip",
+	//Samsara ex-hbb3
+	"Shell", "Shell", "HLPythonCounter", "Shell", "Shell", "Shell", "Shell", "RottMissiles",
+	"Shell", "Shell", "RocketAmmo", "Shell", "Shell", "Shell", "Shell", "Shell",
+	//Brutal Doom v20b
+	"Shell", "Shell",
+	//MSPaintDoom
+	"Shell", 
+	//Doom 64 mod
+	"Shell", "Shell",
+	//Hard Doom v69
+	"Shell",
+	//Complex Doom
+	"ShotgunMagazine"},
+
+	
+	//DoomguyOriginal
+	{"Shell",
+	//Samsara v0.31 beta
+	"Shell", "Clip", "Shell", "Shell", "RocketAmmo", "FusionBullet", "Clip", "RocketAmmo",
+	//STWOLF3DV4
+	"WolfClip",
+	//Samsara ex-hbb3
+	"Shell", "Shell", "HLShotgunCounter", "Shell", "Shell", "Shell", "Shell", "RottMissiles",
+	"Shell", "Shell", "Shell", "Shell", "Shell", "Shell", "Shell", "Shell",
+	//Brutal Doom v20b
+	"Shell", "Shell",
+	//MSPaintDoom
+	"Shell", 
+	//Doom 64 mod
+	"Shell", "Shell",
+	//Hard Doom v69
+	"Shell",
+	//Complex Doom
+	"SSGShell"},
+
+	
+	//DoomguyOriginal
+	{"Clip",
+	//Samsara v0.31 beta
+	"Clip", "Clip", "Clip", "Clip", "Clip", "RifleBullet", "Clip", "Clip",
+	//STWOLF3DV4
+	"WolfClip",
+	//Samsara ex-hbb3
+	"Clip", "Clip", "HLMP5Counter", "Clip", "Clip", "Clip", "Clip", "SMissiles",
+	"Clip", "Clip", "Clip", "Clip", "Clip", "Clip", "Clip", "Clip",
+	//Brutal Doom v20b
+	"Clip2", "Clip",
+	//MSPaintDoom
+	"Clip", 
+	//Doom 64 mod
+	"Clip", "Clip",
+	//Hard Doom v69
+	"Clip",
+	//Complex Doom
+	"BulletMag"},
+
+	
+	//DoomguyOriginal
+	{"RocketAmmo",
+	//Samsara v0.31 beta
+	"RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "SpankerAmmo", "Cell", "RocketAmmo",
+	//STWOLF3DV4
+	"WolfClip",
+	//Samsara ex-hbb3
+	"RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "FBMissiles",
+	"RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "RocketAmmo", "rocketammo", "Rocketammo", "RocketAmmo",
+	//Brutal Doom v20b
+	"RocketAmmo", "RocketAmmo",
+	//MSPaintDoom
+	"RocketAmmo", 
+	//Doom 64 mod
+	"RocketAmmo", "RocketAmmo",
+	//Hard Doom v69
+	"RocketAmmo",
+	//Complex Doom
+	"RocketDrum"},
+
+	
+	//DoomguyOriginal
+	{"Cell",
+	//Samsara v0.31 beta
+	"Cell", "Cell", "Cell", "Cell", "Cell", "NapalmInTank", "Cell", "Clip",
+	//STWOLF3DV4
+	"WolfClip",
+	//Samsara ex-hbb3
+	"Cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Cell", "DMissiles",
+	"Cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Cell", "Cell",
+	//Brutal Doom v20b
+	"Cell", "Cell",
+	//MSPaintDoom
+	"Cell", 
+	//Doom 64 mod
+	"Cell", "Cell",
+	//Hard Doom v69
+	"Cell",
+	//Complex Doom
+	"PlasmaCell"}
+};
+
+/*
+Pistol: 0
+Shotgun: 1
+SSG: 2
+Chaingun: 3
+RocketLauncher: 4
+Plasma: 5
+
+*/
+
+
+function str getammoAdaption(int indexClass, str oAmmo)
+{
+	int i;
+	
+	if (indexClass <= 0)
+		return oAmmo;
+		
+	for (i=0; i < ISAMMOTYPES; i++)
+	{
+		if (StrICmp(oAmmo, ammoAdaptions[i][0]) == 0)
+			return ammoAdaptions[i][indexClass];
+	}
+	
+	return oAmmo;
+}
+
+function str convertirMunicion(str pClass, int aClass)
+{
+	int currentClass = getCurrentPlayerClass(pClass);
+	
+	if (currentClass <= 0)
+		return iwadAmmoAdaptions[aClass][currentIwad];
+		
+	return ammoAdaptions[aClass][currentClass];
+}
+
+function str convertirArma(str pClass, str wClass)
+{
+	int currentClass = getCurrentPlayerClass(pClass);
+	if (currentClass <= 0)
+	{
+		int wIndex = getISWeaponIndex(wClass);
+		return iwadWeaponAdaptions[wIndex][currentIwad];
+	}
+	return getWeaponAdaption(currentClass, wClass);
+}

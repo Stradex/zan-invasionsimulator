@@ -1,0 +1,233 @@
+ACTOR INVSIClipOfBullets : _INVSIClipOfBullets  replaces _INVSIClipOfBullets
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIBoxOfBullets : _INVSIBoxOfBullets  replaces _INVSIBoxOfBullets
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMiniMissiles : _INVSIMiniMissiles replaces _INVSIMiniMissiles
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSICrateOfMissiles : _INVSICrateOfMissiles replaces _INVSICrateOfMissiles
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIEnergyPod : _INVSIEnergyPod replaces _INVSIEnergyPod
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIEnergyPack : _INVSIEnergyPack replaces _INVSIEnergyPack
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIPoisonBolts : _INVSIPoisonBolts replaces _INVSIPoisonBolts
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIElectricBolts : _INVSIElectricBolts replaces _INVSIElectricBolts
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIAmmoSatchel : _INVSIAmmoSatchel replaces _INVSIAmmoSatchel
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGold10 : _INVSIGold10 replaces _INVSIGold10
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGold25 : _INVSIGold25 replaces _INVSIGold25
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGold50 : _INVSIGold50 replaces _INVSIGold50
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIGold300 : _INVSIGold300 replaces _INVSIGold300
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMetalArmor : _INVSIMetalArmor replaces _INVSIMetalArmor
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSILeatherArmor : _INVSILeatherArmor replaces _INVSILeatherArmor
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMedPatch : _INVSIMedPatch replaces _INVSIMedPatch
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMedicalKit : _INVSIMedicalKit replaces _INVSIMedicalKit
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSISurgeryKit : _INVSISurgeryKit replaces _INVSISurgeryKit
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}

@@ -1,0 +1,406 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+Actor INVSI64ZombieMan : 64ZombieMan replaces 64ZombieMan
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthZombieMan : 64StealthZombieMan replaces 64StealthZombieMan
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64ShotgunGuy : 64ShotgunGuy replaces 64ShotgunGuy
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthShotgunGuy : 64StealthShotgunGuy replaces 64StealthShotgunGuy
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64ChaingunGuy : 64ChaingunGuy replaces 64ChaingunGuy
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthChaingunguy : 64StealthChaingunguy replaces 64StealthChaingunguy
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Zombiemarine : 64Zombiemarine replaces 64Zombiemarine
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64DoomImp : 64DoomImp replaces 64DoomImp
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINightmareImp : NightmareImp replaces NightmareImp
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthDoomImp : 64StealthDoomImp replaces 64StealthDoomImp
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Demon : 64Demon replaces 64Demon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthDemon : 64StealthDemon replaces 64StealthDemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Spectre : 64Spectre replaces 64Spectre
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Cacodemon : 64Cacodemon replaces 64Cacodemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthCacodemon : 64StealthCacodemon replaces 64StealthCacodemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Revenant : 64Revenant replaces 64Revenant
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthRevenant : 64StealthRevenant replaces 64StealthRevenant
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Fatso : 64Fatso replaces 64Fatso
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthFatso : 64StealthFatso replaces 64StealthFatso
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Arachnotron : 64Arachnotron replaces 64Arachnotron
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64StealthArachnotron : 64StealthArachnotron replaces 64StealthArachnotron
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64LostSoul : 64LostSoul replaces 64LostSoul
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64HellKnight : 64HellKnight replaces 64HellKnight
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64BaronOfHell : 64BaronOfHell replaces 64BaronOfHell
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64Cyberdemon : 64Cyberdemon replaces 64Cyberdemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64PainElemental : 64PainElemental replaces 64PainElemental
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64SpiderMastermind : 64SpiderMastermind replaces 64SpiderMastermind
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIMotherdemon : Motherdemon replaces Motherdemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINightmareCacodemon : NightmareCacodemon replaces NightmareCacodemon
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSI64HellHound : 64HellHound replaces 64HellHound
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIIntroMarine : IntroMarine replaces IntroMarine
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+		goto "Super::Spawn"
+	}
+}

@@ -1,0 +1,37 @@
+#include "actors/iwadDetection.txt"
+
+//IWADS
+#include "actors/game_doom/ISD-doomMonsters.txt"
+#include "actors/game_doom/ISD-doomItems.txt"
+
+#include "actors/game_heretic/ISD-hereticMonsters.txt"
+#include "actors/game_heretic/ISD-hereticItems.txt"
+
+
+//#include "actors/game_strife/ISD-strifeMonsters.txt" Ver luego por que no funciona
+#include "actors/game_strife/ISD-strifeItems.txt"
+
+//PWADS Externos
+#include "actors/samsara/ISD-samsaraMonsters.txt"
+#include "actors/samsara/ISD-samsaraItems.txt"
+
+#include "actors/stwolf/ISD-stwolfMonsters.txt"
+#include "actors/stwolf/ISD-stwolfItems.txt"
+
+#include "actors/brutal/ISD-brutalMonsters.txt"
+#include "actors/brutal/ISD-brutalItems.txt"
+
+#include "actors/psimulator/ISD-psimulatorMonsters.txt"
+#include "actors/psimulator/ISD-psimulatorItems.txt"
+
+#include "actors/mspaint/ISD-mspaintMonsters.txt"
+#include "actors/mspaint/ISD-mspaintItems.txt"
+
+#include "actors/bd64/ISD-bd64Monsters.txt"
+#include "actors/bd64/ISD-bd64Items.txt"
+
+#include "actors/harddoom/ISD-hdItems.txt"
+#include "actors/harddoom/ISD-hdMonsters.txt"
+
+#include "actors/complex/ISD-complexMonsters.txt"
+#include "actors/complex/ISD-complexItems.txt"

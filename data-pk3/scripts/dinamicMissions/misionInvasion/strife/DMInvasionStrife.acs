@@ -1,0 +1,93 @@
+
+#libdefine	MAXLINEDEFS			15
+#libdefine	STRIFE_MAPS			19
+
+str strifeMaps[STRIFE_MAPS] =
+{
+	"map01",
+	"map02",
+	"map03",
+	"map05",
+	"map07",
+	"map08",
+	"map09",
+	"map10",
+	"map11",
+	"map12",
+	"map13",
+	"map14",
+	"map15",
+	"map16",
+	"map17",
+	"map18",
+	"map19",
+	"map20",
+	"map21"
+};
+
+function int getStrifeMapIndex(str mapName)
+{
+	int i;
+	for (i=0; i < STRIFE_MAPS; i++)
+	{
+		if (StrICmp(strifeMaps[i], mapName) == 0)
+			return i;
+	}
+	return -1;
+}
+
+int strifeEndMapsLinedefs[STRIFE_MAPS][MAXLINEDEFS] =
+{
+	{206, 209, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map01
+	{401, 314, 704, 2714, 501, 1101, 222, 101, -1, -1, -1, -1, -1, -1, -1}, //Map02
+	{203, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map03
+	{302, 202, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map05
+	{602, 3101, 603, 901, 802, 204, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //map07
+	{705, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map08
+	{703, 7, 10, 1001, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map09
+	{204, 602, 1106, 603, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map10
+	{208, 2301, 1201, 1202, 1701, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map11
+	{1102, 2603, 26, 223, 1103, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map12
+	{2105, 2403, 2501, 2305, 1706, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map13
+	{2003, 2302, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map14
+	{1703, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map15
+	{1702, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map16
+	{1801, 1107, 1601, 1302, 1502, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map17
+	{1705, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map18
+	{1704, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map19
+	{1402, 2401, 2304, 2101, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, //Map20
+	{2002, 1305, 2201, 2601, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1} //Map21
+};
+
+function void strifeBlockExit(str mapName)
+{
+	int mapIndex = getStrifeMapIndex(mapName);
+	if (mapIndex == -1)
+		return;
+		
+	int i;
+	for (i=0; i < MAXLINEDEFS; i++)
+	//for (i=0; i < 500; i++)
+	{
+		if (strifeEndMapsLinedefs[mapIndex][i] == -1)
+			continue;
+		Line_SetBlocking(strifeEndMapsLinedefs[mapIndex][i], BLOCKF_EVERYTHING, BLOCKF_FLOATERS);
+		//Line_SetBlocking(i, BLOCKF_EVERYTHING, BLOCKF_FLOATERS);
+		//Log(s: "Linea ", d:strifeEndMapsLinedefs[mapIndex][i], s:" Bloqueada");
+	}
+}
+
+function void strifeAllowExit(str mapName)
+{
+	int mapIndex = getStrifeMapIndex(mapName);
+	if (mapIndex == -1)
+		return;
+		
+	int i;
+	for (i=0; i < MAXLINEDEFS; i++)
+	{
+		if (strifeEndMapsLinedefs[mapIndex][i] == -1)
+			continue;
+		Line_SetBlocking(strifeEndMapsLinedefs[mapIndex][i], BLOCKF_FLOATERS, BLOCKF_PLAYERS);
+	}
+}

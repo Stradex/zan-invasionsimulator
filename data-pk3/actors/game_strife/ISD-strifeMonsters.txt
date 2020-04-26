@@ -1,0 +1,305 @@
+actor INVSIAcolyteBlue : _INVSIAcolyteBlue replaces _INVSIAcolyteBlue
+{
+	RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteDGreen : _INVSIAcolyteDGreen replaces _INVSIAcolyteDGreen
+{
+	RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteGold : _INVSIAcolyteGold replaces _INVSIAcolyteGold
+{
+	RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteGray : _INVSIAcolyteGray replaces _INVSIAcolyteGray
+{
+	////RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteLGreen : _INVSIAcolyteLGreen replaces _INVSIAcolyteLGreen
+{
+	////RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteRed : _INVSIAcolyteRed replaces _INVSIAcolyteRed
+{
+	////RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+/*
+actor INVSIAcolyteRust : _INVSIAcolyteRust replaces _INVSIAcolyteRust
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteShadow : _INVSIAcolyteShadow replaces _INVSIAcolyteShadow
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteTan : _INVSIAcolyteTan replaces _INVSIAcolyteTan
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAcolyteToBe : _INVSIAcolyteToBe replaces _INVSIAcolyteToBe
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAlienSpectre1 : _INVSIAlienSpectre1 replaces _INVSIAlienSpectre1
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAlienSpectre2 : _INVSIAlienSpectre2 replaces _INVSIAlienSpectre2
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAlienSpectre3 : _INVSIAlienSpectre3 replaces _INVSIAlienSpectre3
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAlienSpectre4 : _INVSIAlienSpectre4 replaces _INVSIAlienSpectre4
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIAlienSpectre5 : _INVSIAlienSpectre5 replaces _INVSIAlienSpectre5
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+actor INVSILoremaster : _INVSILoremaster replaces _INVSILoremaster
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSISentinel : _INVSISentinel replaces _INVSISentinel
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+  Idle:
+	TNT1 A 0 ACS_ExecuteAlways(9001, 0)
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSICrusader : _INVSICrusader replaces _INVSICrusader
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIInquisitor : _INVSIInquisitor replaces _INVSIInquisitor
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIStalker : _INVSIStalker replaces _INVSIStalker
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+	goto "Super::Spawn"
+	}
+}
+
+actor INVSIReaver : _INVSIReaver replaces _INVSIReaver
+{
+	//RenderStyle Translucent
+	States
+	{
+
+ 	Spawn:
+	TNT1 A 0 Bright
+    goto Idle
+	goto "Super::Spawn"
+	}
+}*/

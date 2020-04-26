@@ -1,0 +1,11 @@
+ACTOR DoomCheck    { Game Doom     SpawnID 255  Radius 1  Height 1 }
+ACTOR HereticCheck { Game Heretic  SpawnID 255  Radius 1  Height 1 }
+ACTOR HexenCheck   { Game Hexen    SpawnID 255  Radius 1  Height 1 }
+ACTOR StrifeCheck  { Game Strife   SpawnID 255  Radius 1  Height 1 }
+ACTOR ChexCheck    { Game Chex     SpawnID 255  Radius 1  Height 1 }
+
+ACTOR DoomCounter : Inventory    {Inventory.MaxAmount 1}
+ACTOR HereticCounter : Inventory {Inventory.MaxAmount 1}
+ACTOR HexenCounter : Inventory   {Inventory.MaxAmount 1}
+ACTOR StrifeCounter : Inventory  {Inventory.MaxAmount 1}
+ACTOR ChexCounter : Inventory    {Inventory.MaxAmount 1}

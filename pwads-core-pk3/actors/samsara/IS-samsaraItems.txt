@@ -1,0 +1,103 @@
+//Para la version de Samsara 0.31 beta
+
+//Generico
+actor Ammo1Big { }
+actor Ammo2Big { }
+actor Ammo3Big { }
+actor Ammo4Big { }
+actor AmmoBackpack { }
+actor ArmorScrap { }
+actor ArmorPack1 { }
+actor ArmorPack2 { }
+actor ArmorPack3 { }
+actor SamsaraYellowArmor { }
+actor QuakeGreenArmor { }
+actor QuakeYellowArmor { }
+actor QuakeRedArmor { }
+actor SamsaraSilverArmor { }
+actor MarathonGreenArmor { }
+actor MarathonYellowArmor { }
+actor MarathonRedArmor { }
+actor HealPack0 { }
+actor HealPack1 { }
+actor HealPack2  { }
+actor SuperHealth { }
+actor MegaPack { }
+actor BioSuit { }
+actor Visor { }
+
+//Doom
+
+actor SamsaraClip_Doom { }
+
+//Strife [Version 0.2 del invasion simulator, compatible multiple I-WAD]
+
+actor StrifeStimpack { }
+actor StrifeMedikit { }
+actor StrifeSoulsphere { }
+actor StrifeBackpack { }
+actor StrifeClipOfBullets { }
+actor StrifeBoxOfBullets { }
+actor StrifeElectricBolts { }
+actor StrifeMiniMissiles { }
+actor StrifeCrateOfMissiles { }
+actor StrifeHEGrenades { }
+actor StrifeEnergyPod { }
+actor StrifeEnergyPack { }
+actor StrifeAmmoFillup { }
+
+//Heretic [Version 0.2 del invasion simulator, compatible multiple I-WAD]
+
+actor HereticInvisibility { }
+actor HereticInvulnerability { }
+actor HereticVisor { }
+actor HereticFlightPickup { }
+actor HereticTeleportPickup  { }
+actor HereticLesserTome { }
+actor PowerLesserTome : Powerup { } //POR QUE ZI XD
+actor HereticAmmo1Small { }
+actor HereticAmmo1Big { }
+actor HereticAmmo2Small { }
+actor HereticAmmo2Big  { }
+actor HereticAmmo3Small { }
+actor HereticAmmo3Big { }
+actor HereticAmmo4Small { }
+actor HereticAmmo4Big { }
+actor HereticAmmoBackpack { }
+actor HereticAmmoDump {  }
+actor HereticAmmoDump2 { }
+actor HereticHealPack0 { }
+actor HereticHealPack1 { }
+actor HereticHealPack2 { }
+actor HereticSuperHealth { }
+actor HereticArmorDump { }
+actor GoldWandAmmo2 { }
+actor BlasterAmmo2 { }
+actor CrossbowAmmo2 { }
+actor CrossbowAmmo3 { }
+actor PhoenixRodAmmo2 { }
+actor PhoenixRodAmmo3 { }
+actor SkullRodAmmo2 { }
+
+//Hexen [Version 0.2 del invasion simulator, compatible multiple I-WAD]
+
+actor HexenAmmo12Small { }
+actor HexenAmmo34Small { }
+actor HexenEverythingAmmo { }
+actor HexenArmor1 { }
+actor HexenArmor5 { }
+actor HexenArmor5A { }
+actor HexenArmor5B { }
+actor HexenArmor2 { }
+actor HexenArmor3 { }
+actor HexenArmor4 { }
+actor HexenTeamPickup { }
+actor ArtiHealingRadius2 { }
+actor QuakeQuarterDamage { }
+actor PowerQuackQuarterDamage : Powerup { } //POR QUE ZI XD
+actor HeXenBeaconItem { }
+actor HexenBeaconSpawner { }
+actor HexenInvulnerability { }
+actor HexenAmmoBackpack { }
+actor HexenBootsPickup { }
+actor HexenTeleportPickup { }

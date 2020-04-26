@@ -1,0 +1,107 @@
+#include "itemsTrackerDefs.acs"
+
+script SERVER_ITEMSTRACKER (void)
+{
+	if (invasionStarted)
+		terminate;
+	if (itemsTrackeds >= IT_MAXSPAWNPOINTS)
+		terminate;
+	int itemIndex = itemsTrackeds;
+	itemsSpawnPoints[itemsTrackeds][0] = GetActorX(0);
+	itemsSpawnPoints[itemsTrackeds][1] = GetActorY(0);
+	itemsSpawnPoints[itemsTrackeds][2] = GetActorZ(0);
+	//log(s: "Item tracked...");
+	itemsTrackeds++;
+	if (ActivatorTid() != 0 || itemRespawnEnabled) //Si hay respawn de items activado no se utiliza
+		terminate; //Para no alterar items con  tid
+		
+	itemTid[itemIndex] = getTidNotReserved();
+	itemPicked[itemIndex] = false;
+	itemClassName[itemIndex] = GetActorClass(0);
+	Thing_ChangeTid(0, itemTid[itemIndex]);
+}
+
+script SERVER_ITEMSCHECK (void)
+{
+	/*
+	//Al pedo todo esto, soy un pelotudo de mierda
+	if (itemRespawnEnabled) //Si hay respawn de items activado no se utiliza
+		terminate;
+	int i;
+	do
+	{
+	for (i=0; i < itemsTrackeds; i++)
+	{
+		if (itemPicked[i])
+			continue;
+		//Log(s: "Items: ", d:ThingCount(T_NONE, itemTid[i]));
+		if (!ThingCount(T_NONE, itemTid[i]))
+		{
+			Log(s: "Item agarrado, TID: ", d:itemTid[i]);
+			itemPicked[i] = true;
+		}
+	}
+	delay(85); //cada 2.5 segundos es el chequeo
+	}while(1);*/
+}
+
+function int findItemIndexByTid(int iTid)
+{
+	int i;
+	for (i=0; i < itemsTrackeds; i++)
+	{
+		if (itemTid[i] == iTid)
+			return i;
+	}
+	return -1;
+}
+
+function int getTidNotReserved(void)
+{
+	for (; GiveTID < 0; GiveTID++)
+	{
+		if (findItemIndexByTid(GiveTID) >= 0)
+			continue;
+		if (!ThingCount(T_NONE, GiveTID))
+			return GiveTID;
+	}
+	return 0;
+}
+script SERVER_RESPAWNITEMS (void)
+{
+	if (itemRespawnEnabled)
+		terminate;
+	int i;
+	int iterations = 0;
+	for (i=0; i < itemsTrackeds; i++, iterations++)
+	{
+		if (iterations >= 16)
+		{
+			delay(1);
+			iterations = 0;
+		}
+		if (ThingCount(T_NONE, itemTid[i]) > 1) //Si hay algo más con ese tid mejor ni lo toquemos .xD
+			continue;
+		Thing_Remove(itemTid[i]);
+		int newTid = getTidNotReserved();
+		itemTid[i] = newTid;
+		Spawn(itemClassName[i], itemsSpawnPoints[i][0], itemsSpawnPoints[i][1], itemsSpawnPoints[i][2], newTid);
+	}
+}
+/*
+function void respawnAllItems (void)
+{
+	if (itemRespawnEnabled)
+		return;
+	int i;
+	for (i=0; i < itemsTrackeds; i++)
+	{
+		if (ThingCount(T_NONE, itemTid[i]) > 1) //Si hay algo más con ese tid mejor ni lo toquemos .xD
+			continue;
+		Thing_Remove(itemTid[i]);
+		int newTid = getTidNotReserved();
+		itemTid[i] = newTid;
+		Spawn(itemClassName[i], itemsSpawnPoints[i][0], itemsSpawnPoints[i][1], itemsSpawnPoints[i][2], newTid);
+	}
+}
+*/

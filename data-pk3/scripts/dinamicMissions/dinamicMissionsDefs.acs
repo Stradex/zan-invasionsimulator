@@ -1,0 +1,45 @@
+#libdefine	DMISSIONS_START			5751
+#libdefine	DMISSIONS_STATEMSG		5752
+
+
+#libdefine DMISSIONS_LANGUAGE		2 //Spanish e ingles		
+#libdefine DMISSIONS_PRIMISSIONS	3 //Total de misiones primarias
+#libdefine DMISSIONS_SECMISSIONS	2 //Total de misiones secundarias
+
+//Misiones primarias
+#libdefine DMISSIONS_INVASION		0
+#libdefine DMISSIONS_DOCUMENTOS		1
+#libdefine DMISSIONS_SIGNAL			2
+
+//Misiones secundarias
+#libdefine DMISSIONS_EMISION		0
+#libdefine DMISSIONS_VIRUS			1
+
+
+//IDs de los mensajes [45 - 100]
+#libdefine DMMSGS_PERCENTWAVE		45
+#libdefine DMMSGS_WEAPONHUD			46
+#libdefine DMMSGS_PERCENTTXT		47
+#libdefine DMMSGS_MISSION			50
+#libdefine DMMSGS_STATE				51
+#libdefine DMMSGS_TIMEMSG			52
+#libdefine DMMSGS_WAVESTATE			53
+#libdefine DMMSGS_EXITSTATE			54
+#libdefine DMMSGS_PROGRESS			55
+
+int DMCurrentMission = 0;
+int DMLanguage = 0;
+
+str strDMMissionsMessages[DMISSIONS_PRIMISSIONS][DMISSIONS_LANGUAGE] = {
+	{"ALERTA!.\n Debes sobrevivir a la invasion,\n una vez terminada podras salir", "ALERT!.\n You must survive the Invasion,\n then you can exit"},
+	{"Encuentra los documentos de la UAC antes de irte.", "Find the UAC's documents before leave the level"},
+	{"Debes reparar los generadores para enviar el\n mensaje de advertencia sobre la invasion a la UAC", "Your job is repair the generators\n because you need to send an advise to the UAC\n about the invasion"}
+};
+
+str strDMMissionsMiniMsgs[DMISSIONS_PRIMISSIONS][DMISSIONS_LANGUAGE] = {
+	{"Mision: Sobrevive a la invasion", "Mission: Survive the invasion"},
+	{"Mision: Encuentra los documentos", "Mission: Find the documents"},
+	{"Mision: Reparar los generadores \ny enviar la transmision", "Mission: Repair the generators and\n send the signal"}
+};
+
+int waveProgress = 0; //porcentaje de progreso

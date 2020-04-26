@@ -1,0 +1,13 @@
+
+#libdefine	SERVER_ITEMSTRACKER		11507
+#libdefine	SERVER_ITEMSCHECK		11508
+#libdefine  SERVER_RESPAWNITEMS		11509
+#libdefine 	IT_MAXSPAWNPOINTS		1024
+
+int itemsSpawnPoints[IT_MAXSPAWNPOINTS][3];
+bool itemRespawnEnabled = false;
+int itemsTrackeds = 0;
+
+int		itemTid[IT_MAXSPAWNPOINTS];
+bool	itemPicked[IT_MAXSPAWNPOINTS];
+str		itemClassName[IT_MAXSPAWNPOINTS];

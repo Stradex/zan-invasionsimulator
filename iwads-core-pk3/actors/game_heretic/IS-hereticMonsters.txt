@@ -1,0 +1,15 @@
+actor _INVSIBeast : Beast replaces Beast {}
+actor _INVSIChicken : Chicken replaces Chicken {}
+actor _INVSIClink : Clink replaces Clink {}
+actor _INVSIIronlich : Ironlich replaces Ironlich {}
+actor _INVSIKnight : Knight replaces Knight {}
+actor _INVSIKnightGhost : KnightGhost replaces KnightGhost {}
+actor _INVSIMinotaur : Minotaur replaces Minotaur {}
+actor _INVSIMummy : Mummy replaces Mummy {}
+actor _INVSIMummyLeader : MummyLeader replaces MummyLeader {}
+actor _INVSISnake : Snake replaces Snake {}
+actor _INVSISorcerer1 : Sorcerer1 replaces Sorcerer1 {}
+actor _INVSISorcerer2 : Sorcerer2 replaces Sorcerer2 {}
+actor _INVSIWizard : Wizard replaces Wizard {}
+actor _INVSIHereticImp : HereticImp replaces HereticImp {}
+actor _INVSIHereticImpLeader : HereticImpLeader replaces HereticImpLeader {}

@@ -1,0 +1,103 @@
+#include "iwadsBaseDefs.acs"
+
+/*
+#libdefine IWAD_DOOM		0
+#libdefine IWAD_HERETIC		1
+#libdefine IWAD_HEXEN		2
+#libdefine IWAD_STRIFE		3
+#libdefine IWAD_CHEX		4
+
+Classes:BaseKey
+Classes:BlueCrystalKey
+Classes:BrassKey
+C
+Classes:CatacombKey
+Classes:ChapelKey
+Classes:CoreKey
+F
+Classes:FactoryKey
+G
+Classes:GoldKey
+Classes:GovsKey
+I
+Classes:IDBadge
+Classes:IDCard
+M
+Classes:MaulerKey
+Classes:MilitaryID
+Classes:MineKey
+N
+Classes:NewKey5
+O
+Classes:OracleKey
+Classes:OraclePass
+Classes:OrderKey
+P
+Classes:Passcard
+Classes:Power1Key
+Classes:Power2Key
+Classes:Power3Key
+Classes:PrisonKey
+Classes:PrisonPass
+R
+Classes:RedCrystalKey
+S
+Classes:SecurityKey
+Classes:SeveredHand
+Classes:SilverKey
+W
+Classes:WarehouseKey
+
+*/
+
+script SERVER_GIVE_KEYS (void)
+{
+	switch (currentIwad)
+	{
+		case IWAD_HERETIC:
+			//Por ahora nada
+		break;
+		case IWAD_HEXEN:
+			//Por ahora nada
+		break;
+		case IWAD_STRIFE:
+			GiveInventory("BaseKey", 1);
+			GiveInventory("BlueCrystalKey", 1);
+			GiveInventory("BrassKey", 1);
+			GiveInventory("CatacombKey", 1);
+			GiveInventory("ChapelKey", 1);
+			GiveInventory("CoreKey", 1);
+			GiveInventory("FactoryKey", 1);
+			GiveInventory("GoldKey", 1);
+			GiveInventory("GovsKey", 1);
+			GiveInventory("IDBadge", 1);
+			GiveInventory("IDCard", 1);
+			GiveInventory("MaulerKey", 1);
+			GiveInventory("MilitaryID", 1);
+			GiveInventory("MineKey", 1);
+			GiveInventory("NewKey5", 1);
+			GiveInventory("OracleKey", 1);
+			GiveInventory("OraclePass", 1);
+			GiveInventory("OrderKey", 1);
+			GiveInventory("Passcard", 1);
+			GiveInventory("Power1Key", 1);
+			GiveInventory("Power2Key", 1);
+			GiveInventory("Power3Key", 1);
+			GiveInventory("PrisonKey", 1);
+			GiveInventory("PrisonPass", 1);
+			GiveInventory("RedCrystalKey", 1);
+			GiveInventory("SecurityKey", 1);
+			GiveInventory("SeveredHand", 1);
+			GiveInventory("SilverKey", 1);
+			GiveInventory("WarehouseKey", 1);
+		break;
+		case IWAD_CHEX:
+			//Por ahora nada
+		break;
+		
+		case IWAD_DOOM:
+		default:
+			//Por ahora nada
+		break;
+	}
+}

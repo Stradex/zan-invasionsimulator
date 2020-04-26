@@ -1,0 +1,56 @@
+/*
+0: Español
+1: Ingles
+*/
+
+str strIdiomas[DMISSIONS_LANGUAGE] = {
+	"ES", //Spanish
+	"EN" //English
+};
+
+function int getIdioma(str lang)
+{
+	int i=0;
+	for (i=0; i < DMISSIONS_LANGUAGE; i++)
+	{
+		if (StrICmp(lang, strIdiomas[i]) == 0)
+			return i;
+	}
+	return 1; //Default ingles en caso de error
+}
+
+str strConteoWave[DMISSIONS_LANGUAGE] = {
+	"Proxima oleada ",
+	"Next wave "
+};
+
+str strWavesRestantes[DMISSIONS_LANGUAGE] = {
+	"Oleadas restantes ",
+	"Waves remaining"
+};
+
+str strWaveActual[DMISSIONS_LANGUAGE] = {
+	"Oleada actual ",
+	"Current Wave "
+};
+
+str strExitState[DMISSIONS_LANGUAGE][2] = 
+{
+	{"No puede salir del mapa todavia", "Ya puedes salir del mapa!"},
+	{"You can't exit yet", "You can exit now!"}
+};
+
+str strInvasionFinalizada[DMISSIONS_LANGUAGE] = {
+	"Termino la invasion, ya se pueden salir del mapa",
+	"The invasion is over, you can go to the exit now"
+};
+
+str strWaves[DMISSIONS_LANGUAGE] = {
+	"Oleadas: ",
+	"Waves: "
+};
+
+str strProgress[DMISSIONS_LANGUAGE] = {
+	"Progreso de la ronda: ",
+	"Wave progress: "
+};

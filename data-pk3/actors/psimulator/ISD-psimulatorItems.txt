@@ -1,0 +1,16 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+Actor INVSIShellBoxPL : ShellBoxPL replaces ShellBoxPL
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}

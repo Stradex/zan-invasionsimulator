@@ -1,0 +1,24 @@
+//ACTOR _INVSIBeak : Beak  replaces Beak {}
+//ACTOR _INVSIBeakPowered : BeakPowered replaces BeakPowered {}
+//ACTOR _INVSIBlaster : Blaster replaces Blaster {}
+//ACTOR _INVSIBlasterPowered : BlasterPowered replaces BlasterPowered {}
+//ACTOR _INVSICrossbow : Crossbow replaces Crossbow {}
+//ACTOR _INVSICrossbowPowered : CrossbowPowered replaces CrossbowPowered {}
+//ACTOR _INVSIGauntlets : Gauntlets replaces Gauntlets {}
+//ACTOR _INVSIGauntletsPowered : GauntletsPowered replaces GauntletsPowered {}
+ACTOR _INVSIBagOfHolding : BagOfHolding replaces BagOfHolding {}
+ACTOR _INVSICrystalVial : CrystalVial replaces CrystalVial {}
+ACTOR _INVSIEnchantedShield : EnchantedShield replaces EnchantedShield {}
+ACTOR _INVSISilverShield : SilverShield replaces SilverShield {}
+ACTOR _INVSISuperMap : SuperMap replaces SuperMap {}
+
+ACTOR _INVSIArtiHealth : ArtiHealth replaces ArtiHealth { }
+ACTOR _INVSIArtiInvisibility : ArtiInvisibility replaces ArtiInvisibility { }
+ACTOR _INVSIArtiSuperHealth: ArtiSuperHealth replaces ArtiSuperHealth { }
+ACTOR _INVSIArtiTomeOfPower : ArtiTomeOfPower replaces ArtiTomeOfPower { }
+ACTOR _INVSIBlasterHefty : BlasterHefty replaces BlasterHefty { }
+ACTOR _INVSICrossbowHefty : CrossbowHefty replaces CrossbowHefty { }
+ACTOR _INVSIGoldWandHefty : GoldWandHefty replaces GoldWandHefty { }
+ACTOR _INVSIMaceHefty : MaceHefty replaces MaceHefty { }
+ACTOR _INVSIPhoenixRodHefty : PhoenixRodHefty replaces PhoenixRodHefty { }
+ACTOR _INVSISkullRodHefty : SkullRodHefty replaces SkullRodHefty { }

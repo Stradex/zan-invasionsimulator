@@ -1,0 +1,176 @@
+//#library "funcs"
+#include "funcsMath.acs"
+#include "funcsCinematica.acs"
+//Otros genericos
+#DEFINE ARMORTYPES				4
+
+
+str armor_types[ARMORTYPES] = {
+  "ArmorBonus",
+  "GreenArmor",
+  "BlueArmor",
+  "BlueArmorForMegasphere"
+};
+
+str armor_messages[6] = {
+  "You are unarmored, but have found armor bonuses.",
+  "You are wearing security armor.",
+  "You are wearing combat armor.",
+  "You have a megasphere.",
+  "What the hell are you wearing?",
+  "You are unarmored."
+};
+
+int GiveTID = -32767;
+function int NextTID (void)
+{
+    for ( ; GiveTID < 0; GiveTID++)
+    {
+        if (!ThingCount (T_NONE, GiveTID))
+            return GiveTID;
+    }
+    return 0;
+}
+
+function str getCurrentMapName(void)
+{
+	return strparam(n:-2);
+}
+
+function bool PlayerPlaying(int number)
+{
+	if ((number >= 0) && (number < MAXPLAYERS) && (PlayerInGame(number) && Palive[number]))
+		return true;
+	
+	return false;
+}
+
+function str FoundArmorType (int tid)
+{
+  bool found_armor;
+  int nPlayer = tid-1000;
+  int ArmorType=-1;
+  int armorunits = CheckActorInventory(tid, "Armor");
+  if (CheckActorInventory(tid, "Armor")) // If player has at least 1 armor point, proceed to check the type...
+  {
+    for (int i; i<ARMORTYPES; i++)
+    {
+      if (GetArmorType(armor_types[i], nPlayer))
+      {
+        found_armor = TRUE;
+		ArmorType = i;
+        break;
+      }
+    }
+  }
+   HudMessage(s: "Armor: ", d:armorunits; HUDMSG_PLAIN, 1, CR_RED, 0.1, 0.9, 1.0);
+  return ArmorType;
+}
+
+//Hacer funcion GetClosestPlayer
+
+function int closestPlayerTo(int x, int y, int z)
+{
+	int i;
+	int minDist = -1;
+	int minPos = -1;
+	for (i=0; i < MAXPLAYERS; i++)
+	{
+		if (!Palive[i])
+			continue;
+		int acDist = distReal(x, y, PactPos[i][0], PactPos[i][1]);
+		if (minDist == -1 || acDist < minDist)
+		{
+			minDist = acDist;
+			minPos = i;
+		}
+	}
+	return minPos;
+}
+
+function int closestPlayerToReal(int x, int y, int z, int limitDist)
+{
+	int i;
+	int minDist = limitDist;
+	int minPos = -1;
+	for (i=0; i < MAXPLAYERS; i++)
+	{
+		if (!Palive[i])
+			continue;
+		int acDist = distRealF(x, y, z, PactPos[i][0], PactPos[i][1], PactPos[i][2]);
+		if (minDist == -1 || acDist < minDist)
+		{
+			minDist = acDist;
+			minPos = i;
+		}
+	}
+	return minPos;
+}
+function int maxPlayerNumberPlaying(void)
+{
+	int i, j;
+	j=-1;
+	for (i=0; i < MAXPLAYERS; i++)
+	{
+		if (!Palive[i] || !PlayerInGame(i))
+			continue;
+		j = i;
+	}
+	return j;
+}
+
+//Limite de angulo o abertura
+
+/*	angulosVector3D(vx, vy, vz);
+	if (tmpReturn3D[0] == -1)
+		terminate;
+	int nAngX, nAngY, nAngZ, iAngX, iAngY, iAngZ;
+	
+	iAngX = radToDegree(tmpReturn3D[0]);
+	iAngY = radToDegree(tmpReturn3D[1]);
+	iAngZ = radToDegree(tmpReturn3D[2]);
+	
+	angulosVector3D(nVx, nVy, nVz);
+	if (tmpReturn3D[0] == -1)
+		terminate;
+	nAngX = radToDegree(tmpReturn3D[0]);
+	nAngY = radToDegree(tmpReturn3D[1]);
+	nAngZ = radToDegree(tmpReturn3D[2]);
+	*/
+//El limite es en radianes, los parametros son en radianes
+function void limitarAbertura3D(int iAngX, int iAngY, int iAngZ, int nAngX, int nAngY, int nAngZ, int limite)
+{
+	if (nAngX > (iAngX+limite))
+		nAngX = iAngX + limite;
+	if (nAngX < (iAngX-limite))
+		nAngX = iAngX - limite;
+		
+	if (nAngY > (iAngY+limite))
+		nAngY = iAngY + limite;
+		
+	if (nAngY < (iAngY-limite))
+		nAngY = iAngY - limite;
+		
+	if (nAngZ > (iAngZ+limite))
+		nAngZ = iAngZ + limite;
+	if (nAngZ < (iAngZ-limite))
+		nAngZ = iAngZ - limite;
+
+	tmpReturn3D[0] = nAngX;
+	tmpReturn3D[1] = nAngY;
+	tmpReturn3D[2] = nAngZ;
+	
+	return;
+}
+
+function bool checkPlayersAlive(void)
+{
+	int i=0;
+	for (i=0; i < MAXPLAYERS; i++)
+	{
+		if (PlayerInGame(i) && playerLives[i] > 0)
+				return true;
+
+	}
+	return false;
+}

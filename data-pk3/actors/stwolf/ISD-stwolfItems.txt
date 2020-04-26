@@ -1,0 +1,133 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+Actor INVSIDogFood : DogFood replaces DogFood
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPlateofFood : PlateofFood replaces PlateofFood
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIFirstAidKit : FirstAidKit replaces FirstAidKit
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICross : Cross replaces Cross
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIChalice : Chalice replaces Chalice
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIChest : Chest replaces Chest
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSICrown : Crown replaces Crown
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSILifePickup : LifePickup replaces LifePickup
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBoneswithBlood : BoneswithBlood replaces BoneswithBlood
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPoolofBlood : PoolofBlood replaces PoolofBlood
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}

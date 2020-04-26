@@ -1,0 +1,394 @@
+//#library "funcsMath"
+#libdefine PI_NUMBER		3.14159
+#libdefine E_NUMBER			2.71828
+
+int raices[9][2] = 
+{
+    {2.0, 1.4142135},
+    {3.0, 1.7320508},
+    {5.0, 2.2360679},
+    {7.0, 2.6457513},
+    {11.0, 3.316624},
+    {13.0, 3.605555},
+    {19.0, 4.358898},
+    {23.0, 4.795831},
+    {29.0, 5.385161},
+};
+
+//De zdoom.org wiki
+function int NewSqrt(int number)
+{
+  int samples=15; //Samples for accuracy
+
+  if (number == 1.0) return 1.0; 
+  if (number <= 0) return 0;
+  int val = samples<<17 + samples<<19; //x*10 = x<<1 + x<<3
+  for (int i=0; i<samples; i++) 
+    val = (val + FixedDiv(number, val)) >> 1;
+
+  return val; 
+}
+
+function int absval(int val)
+{
+	int tval = val;
+	if (tval < 0.0)
+		tval = -tval;
+	return tval;
+}
+function int distRealF(int x1, int y1, int z1, int x2, int y2, int z2)
+{
+	int distX = fixedDiv(absval(x1-x2), 10.0);
+	int distY = fixedDiv(absval(y1-y2), 10.0);
+	int distZ = fixedDiv(absval(z1-z2), 10.0);
+	
+	int rDist = fixedMul(distX, distX) + fixedMul(distY, distY);
+	int xyDist = mySqrt(rDist);
+	int fDist = fixedMul(xyDist, xyDist) + fixedMul(distZ, distZ);
+	int fullDist = mySqrt(fDist);
+
+	return fixedMul(fullDist, 1.3);
+}
+function int distReal(int x1, int y1, int x2, int y2)
+{
+	int distX = fixedDiv(absval(x1-x2), 10.0);
+	int distY = fixedDiv(absval(y1-y2), 10.0);
+	int rDist = fixedMul(distX, distX) + fixedMul(distY, distY);
+	int xyDist = mySqrt(rDist);
+	return fixedMul(xyDist, 1.3);
+}
+
+function int fixAngle(int cAngle)
+{
+
+	if (cAngle < 0.0)
+	{
+		cAngle = 255.0 - cAngle;
+	} else if (cAngle > 255.0) {
+		cAngle = cAngle - 255.0;
+	}
+	return cAngle;
+
+}
+
+function int fixAngleRad(int radAngle)
+{
+	int twoPi = FixedMul(PI_NUMBER, 2.0);
+	if (radAngle < 0.0)
+	{
+		radAngle = twoPi - radAngle;
+	} else if (radAngle > twoPi) {
+		radAngle = radAngle - twoPi;
+	}
+	return radAngle;
+}
+
+function int fixAngleDegree(int degAngle)
+{
+	if (degAngle < 0.0)
+	{
+		degAngle = 360.0 - degAngle;
+	} else if (degAngle > 360.0) {
+		degAngle = degAngle - 360.0;
+	}
+	return degAngle;
+}
+
+//Solo usar con numeros mayores a 1
+function int mySqrt(int n)
+{
+	int Result = 1.0;
+	if (n < 0.0)
+		return 0;
+	while (1)
+	{
+		int tResto = -1;
+		int choose = -1;
+		for (int i=0; i < 9; i++)
+		{
+			if (n < raices[i][0])
+				break;
+			int tmp = (n % raices[i][0]);
+			if (tmp < tResto || tResto == -1)
+			{
+				choose = i;
+				tResto = tmp;
+				if (tResto == 0)
+					break;
+			}
+		}
+		if (choose == -1)
+		{
+			if (n >= 1.5)
+			{
+				int tMid = 1.224744; //Raiz de 1.5
+				Result = fixedMul(Result, tMid);
+			}
+			break;
+		} else {
+			Result = fixedMul(Result, raices[choose][1]);
+			n = fixedDiv(n, raices[choose][0]);
+		}
+	}
+	return Result;
+}
+
+function int fixedRound(int a)
+{
+	return (a+0.5) >> 16;
+}
+
+function int intToFixed(int ej)
+{
+	return ej << 16;
+}
+
+//Usar solo con fixed numbers
+function int potencia(int numero, int p)
+{
+	//Solo sirve si p es un numero natural
+	if (p == 0)
+		return 1.0;
+	int i;
+	int newP = absval(p);
+	int retorno = numero;
+	for (i=1; i < newP; i++)
+	{
+		retorno = FixedMul(retorno, numero);
+	}
+	if (p < 0)
+		retorno = FixedDiv(1.0, retorno);
+	return retorno;
+}
+function int moduloR2(int x, int y)
+{
+	int mod;
+	int disminuido = 1.0;
+	
+	while (x > 200.0 || y > 200.0) //Si los numeros son muy grandes, el desgraciado se bugea
+	{	
+		disminuido = FixedMul(disminuido, 10.0);
+		x = FixedDiv(x, 10.0);
+		y = FixedDiv(y, 10.0);
+	}
+	mod = potencia(x, 2) + potencia(y, 2);
+	mod = NewSqrt(mod);
+	mod = FixedMul(mod, disminuido);
+	return mod;
+}
+function int moduloR3(int x, int y, int z)
+{
+	int mod;
+	int disminuido = 1.0;
+	
+	while (x > 200.0 || y > 200.0 || z > 200.0) //Si los numeros son muy grandes, el desgraciado se bugea
+	{	
+		disminuido = FixedMul(disminuido, 10.0);
+		x = FixedDiv(x, 10.0);
+		y = FixedDiv(y, 10.0);
+		z = FixedDiv(z, 10.0);
+	}
+	mod = potencia(x, 2) + potencia(y, 2) + potencia(z, 2);
+	mod = NewSqrt(mod);
+	mod = FixedMul(mod, disminuido);
+	return mod;
+}
+//Distancia entre dos puntos, mejor funcion hasta ahora
+function int dist3D(int x1, int y1, int z1, int x2, int y2, int z2)
+{
+	return moduloR3(x2 - x1, y2 - y1, z2 - z1);
+}
+
+function int dist2D(int x1, int y1, int x2, int y2)
+{
+	return moduloR2(x2 - x1, y2 - y1);
+}
+
+//Trigonometricas (todos fixed point)
+
+//Conversiones
+function int byteToDegree(int byteAngle)
+{
+	return FixedMul(byteAngle, 1.40625);
+}
+function int degreeToByte(int degAngle)
+{
+	return FixedMul(degAngle, 0.7111);
+}
+
+function int fixToDegree(int fixVal)
+{
+	return FixedMul(fixVal, 360.0);
+}
+
+function int degreeToFix(int degAngle)
+{
+	return FixedMul(degAngle, 0.002777);
+}
+
+function int radToDegree(int radAngle)
+{
+	int tmpReturn = FixedDiv(180.0, PI_NUMBER);
+	return FixedMul(radAngle, tmpReturn);
+}
+function int degreeToRad(int degAngle)
+{
+	int tmpReturn = FixedDiv(PI_NUMBER, 180.0);
+	return FixedMul(degAngle, tmpReturn);
+}
+
+function int byteToRad(int byteAngle)
+{
+	int degAngle = byteToDegree(byteAngle);
+	return degreeToRad(degAngle);
+}
+
+function int radToByte(int radAngle)
+{
+	int degAngle = radToDegree(radAngle);
+	return degreeToByte(degAngle);
+}
+
+function int fixToRad(int fixVal)
+{
+	int degAngle = fixToDegree(fixVal);
+	return degreeToRad(degAngle);
+}
+
+function int radToFix(int radAngle)
+{
+	int degAngle = radToDegree(radAngle);
+	return degreeToFix(degAngle);
+}
+function int radCos (int radAngle)
+{
+	radAngle = fixAngleRad(radAngle);
+	return cos(radToFix(radAngle));
+}
+function int radSin (int radAngle)
+{
+	radAngle = fixAngleRad(radAngle);
+	return sin(radToFix(radAngle));
+}
+function int degCos (int degAngle)
+{
+	degAngle = fixAngleDegree(degAngle);
+	return cos(degreeToFix(degAngle));
+}
+function int degSin (int degAngle)
+{
+	degAngle = fixAngleDegree(degAngle);
+	return sin(degreeToFix(degAngle));
+}
+//Trigonometricas inversas (arccos y arcsen) Valores de -1.0 a 1.0
+
+//Retorna en fixedPointAngle
+function int arccos(int x)
+{
+	int nx = FixedDiv(1.0, potencia(x, 2));
+	nx = nx - 1.0;
+	if (nx < 0.0)
+		return 0.0; //Error, devuelvo un angulo igual a 0
+	nx = NewSqrt(nx);
+	return VectorAngle(1.0, nx);
+}
+
+function int arcsin(int x)
+{
+	int nx = potencia(x, 2);
+	int tmp = 1.0 - potencia(x, 2);
+	if (tmp == 0)
+		return 0.25; //90 grados
+	if (tmp < 0.0)
+		return 0.0;
+	nx = FixedDiv(nx, tmp);
+	nx = NewSqrt(nx);
+	return VectorAngle(1.0,  nx);
+}
+
+//Retorna el arcocos con un angulo radian
+function int radArccos(int x)
+{
+	return fixToRad(arccos(x));
+}
+
+//Retorna el arcocos con un angulo Grados
+function int degArccos(int x)
+{
+	return fixToDegree(arccos(x));
+}
+
+//Retorna el arcoseno con un angulo radian
+function int radArcsin(int x)
+{
+	return fixToRad(arcsin(x));
+}
+
+//Retorna el arcoseno con un angulo Grados
+function int degArcsin(int x)
+{
+	return fixToDegree(arcsin(x));
+}
+function int meterToMapUnit(int size)
+{
+	return FixedMul(size, 42.6);
+}
+function int mapUnitToMeter(int size)
+{
+	return fixedDiv(size, 42.6); 
+}
+
+//Funcion de tangente
+//-1 es error
+function int tan (int x)
+{
+	if (cos(x) == 0.0)
+		return -1;
+	return FixedDiv(sin(x), cos(x));
+}
+function int radTan (int radAngle)
+{
+	radAngle = fixAngleRad(radAngle);
+	return tan(radToFix(radAngle));
+}
+function int degTan (int degAngle)
+{
+	degAngle = fixAngleDegree(degAngle);
+	return tan(degreeToFix(degAngle));
+}
+
+/*function int fixAngleRad(int radAngle)
+function int fixAngleDegree(int degAngle)
+*/
+
+//Uso la serie de mercator (polinomio de taylor) para calcular logaritmo natural
+//Esta cosa funciona solo para |x| > 1.0 y |x| < 2.0
+function int logN (int x)
+{
+	int precision = 10;
+	x = x - 1.0;
+	int i, n;
+	int resultado = 0.0;
+	int tmpResult;
+	for (i=1; i < precision; i++)
+	{
+		n = intToFixed(i);
+		tmpResult = FixedDiv(potencia(-1.0, i+1), n);
+		tmpResult = FixedMul(tmpResult, potencia(x, n));
+		resultado = resultado + tmpResult;
+	}
+	return resultado;
+}
+
+function int mathMax (int a, int b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+function int mathMin(int a, int b)
+{
+	if (a < b)
+		return a;
+	return b;
+}

@@ -1,0 +1,192 @@
+//#library "funcsCinematica"
+#libdefine GRAVEDAD		9.807
+
+/*
+MATHFUNCS
+function int NewSqrt(int number)
+function int absval(int val)
+function int distRealF(int x1, int y1, int z1, int x2, int y2, int z2)
+function int distReal(int x1, int y1, int x2, int y2)
+function int fixAngle(int cAngle)
+function int mySqrt(int n)
+function int fixedRound(int a)
+function int intToFixed(int ej)
+function int potencia(int numero, int p)
+function int moduloR3(int x, int y, int z)
+function int dist3D(int x1, int y1, int z1, int x2, int y2, int z2)
+*/
+int tmpReturn3D[3]; //un array temporal donde se almacenan valores para retornar en funciones
+int tmpReturn2D[2];
+
+//Calculo de posicion en MRU 1D, 2D Y 3D
+function int PosMRUCalculo(int x0, int v, int t)
+{
+		return x0 + FixedMul(v, t);
+}
+
+function void PosMRU2DCalculo(int x0, int y0, int vx, int vy, int t)
+{
+	tmpReturn2D[0] = x0 + FixedMul(vx, t);
+	tmpReturn2D[1] = y0 + FixedMul(vy, t);
+	
+	return; //hay que leer el tmpReturn2D despues de llamar a esta funcion
+}
+
+function void PosMRU3DCalculo(int x0, int y0, int z0, int vx, int vy, int vz, int t)
+{
+	tmpReturn3D[0] = x0 + FixedMul(vx, t);
+	tmpReturn3D[1] = y0 + FixedMul(vy, t);
+	tmpReturn3D[2] = z0 + FixedMul(vz, t);
+	
+	return; //hay que leer el tmpReturn3D despues de llamar a esta funcion
+}
+
+function void angulosVector3D(int x, int y, int z)
+{
+	int mod = moduloR3(x, y, z);
+	//Por alguna razon tiene que ser negativo, parece que se le cambia el sistema de referencia
+	int AngX = radArccos(FixedDiv(x, mod));
+	int AngY = radArccos(FixedDiv(y, mod));
+	int AngZ = radArccos(FixedDiv(z, mod));
+
+	tmpReturn3D[0] = AngX;
+	tmpReturn3D[1] = AngY;
+	tmpReturn3D[2] = AngZ;
+
+	return;
+}
+/*
+
+Esta funcion es para obtener los nuevos angulos necesarios para que un projectil intercepte al otro con una velocidad dada y en un tiempo dado
+1. se ingresan los valores de posicion inicial y velocidad del movil 1
+2. Se ingresan los valores de posicion inicial y velocidad del movil 2
+3. se ingresa el tiempo deseado de interseccion
+4. Se dan los angulos nuevos del movil 1 para interceptar
+*/
+function void angulosEncuentro3D(int x1o, int y1o, int z1o, int v1x, int v1y, int v1z, int x2o, int y2o, int z2o, int v2x, int v2y, int v2z, int tf)
+{
+	int modV1 = moduloR3(v1x, v1y, v1z);
+	if (tf <= 0.0 || modV1 == 0.0)
+	{
+		tmpReturn3D[0] = -1;
+		tmpReturn3D[1] = -1;
+		tmpReturn3D[2] = -1;
+	}
+	int tmpX = FixedDiv(x2o - x1o, FixedMul(modV1, tf));
+	tmpX = tmpX + FixedDiv(v2x, modV1);
+	
+	int tmpY = FixedDiv(y2o - y1o, FixedMul(modV1, tf));
+	tmpY = tmpY + FixedDiv(v2y, modV1);
+
+	int tmpZ = FixedDiv(z2o - z1o, FixedMul(modV1, tf));
+	tmpZ = tmpZ - FixedDiv(v2z, modV1);
+	int AngX, AngY, AngZ;
+	AngX = radArccos(arccos(tmpX));
+	AngY = radArccos(arccos(tmpY));
+	AngZ = radArccos(arccos(tmpZ));
+
+	tmpReturn3D[0] = AngX;
+	tmpReturn3D[1] = AngY;
+	tmpReturn3D[2] = AngZ;
+
+	return;
+}
+
+//Si retorna -1 nunca se encuentran
+function void velocidadEncuentro3D(int x1o, int y1o, int z1o, int x2o, int y2o, int z2o, int v2x, int v2y, int v2z, int t)
+{
+	//X: x1o + v1x.t = x2o + v2x.t
+	//t.(v1x - v2x) = (x2o - x1o)
+	//v1x = (x2o - x1o)/y + v2x
+	if (t==0)
+	{
+		tmpReturn3D[0] = -1;
+		tmpReturn3D[1] = -1;
+		tmpReturn3D[2] = -1;
+	}
+	int v1x = FixedDiv(x2o - x1o, t)+v2x;
+	int v1y = FixedDiv(y2o - y1o, t)+v2y;
+	int v1z = FixedDiv(z2o - z1o, t)+v2z;
+
+	tmpReturn3D[0] = v1x;
+	tmpReturn3D[1] = v1y;
+	tmpReturn3D[2] = v1z;
+
+	//x1o 
+	return;
+}
+
+function int tiempoEncuentroMRU(int x1o, int v1, int x2o, int v2)
+{
+	int t; 
+	
+	if ((v2-v1) == 0.0) //evitar dividir por 0
+	{
+		if (x1o == x2o)
+			return 0.0; //ya hay encuentro
+		else
+			return -1; //nunca va a haber encuentro
+	}
+	t = FixedDiv(x1o - x2o, v2 - v1);
+	if (t < 0.0)
+		t = -1;
+	return t;
+}
+
+function int tiempoDistanciaMRU(int x0, int v, int d)
+{
+	int t; 
+	
+	if (v==0.0) //evitar dividir por 0
+		return -1;
+	t = FixedDiv(d-x0, v);
+	if (t < 0.0)
+		t = -1;
+	return t;
+}
+
+function void posTiroOblicuo(int x0, int y0, int z0, int vx, int vy, int vz, int g, int t)
+{
+	//g es la gravedad
+	tmpReturn3D[0] = x0 + FixedMul(vx, t);
+	tmpReturn3D[1] = y0 + FixedMul(vy, t);
+	int totalAcel = FixedMul(FixedMul(0.5, g), potencia(t, 2));
+	tmpReturn3D[2] = z0 + FixedMul(vz, t) - totalAcel;
+}
+function void velTiroOblicuo(int x0, int y0, int z0, int vx, int vy, int vz, int g, int t)
+{
+	tmpReturn3D[0] = vx; //cte
+	tmpReturn3D[1] = vy; //cte
+	tmpReturn3D[2] = vz - FixedMul(g, t); //variable
+}
+
+function int iniVelZTiroOblicuo(int z0, int zf, int g, int t)
+{
+	int tmpVzo = zf - z0;
+	if (t <= 0.0)
+		return -1;
+	tmpVzo = tmpVzo + FixedMul(FixedMul(0.5, g), potencia(t, 2));
+	return FixedDiv(tmpVzo, t);
+}
+
+function int velAcelerada(int v, int a, int t)
+{
+	return v + FixedMul(a, t);
+}
+/*
+Ejemplo de uso:
+
+int vx, vy, vz, tiempo;
+vx = GetActorVelX(tid);
+vy = GetActorVelY(tid);
+vz = GetActorVelZ(tid); //¿Velocidad en unidades por tic?)
+iniVz = vz;
+tiempo = 1.0;
+do
+{
+	vz = velAcelerada(iniVz, GRAVEDAD, 1.0);
+	delay(1);
+	SetActorVel(vz);
+	tiempo = tiempo + 1.0;
+}while(ThingCount(T_NONE, tid));
+*/

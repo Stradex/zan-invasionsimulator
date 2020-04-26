@@ -1,0 +1,169 @@
+
+ACTOR INVSIMMegasphere : _INVSIMMegasphere  replaces _INVSIMMegasphere
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+  
+}
+  
+ACTOR INVSIMSoulsphere : _INVSIMSoulsphere replaces _INVSIMSoulsphere
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+  
+ACTOR INVSIMBerserk : _INVSIMBerserk replaces _INVSIMBerserk
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMArmorBonus : _INVSIMArmorBonus replaces _INVSIMArmorBonus
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+  
+ACTOR INVSIMHealthBonus : _INVSIMHealthBonus replaces _INVSIMHealthBonus
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMBlueArmor : _INVSIMBlueArmor replaces _INVSIMBlueArmor
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMGreenArmor : _INVSIMGreenArmor replaces _INVSIMGreenArmor
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMStimpack : _INVSIMStimpack replaces _INVSIMStimpack
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMMedikit : _INVSIMMedikit replaces _INVSIMMedikit
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMBackpack : _INVSIMBackpack replaces _INVSIMBackpack
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMCellPack : _INVSIMCellPack replaces _INVSIMCellPack
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+
+ACTOR INVSIMShellBox : _INVSIMShellBox replaces _INVSIMShellBox
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}
+ACTOR INVSIMRocketBox : _INVSIMRocketBox replaces _INVSIMRocketBox
+{
+  States
+  {
+  Spawn: 
+	TNT1 A 0 Bright
+	goto Idle
+  Idle:
+    TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+    goto "Super::Spawn"
+  }
+}

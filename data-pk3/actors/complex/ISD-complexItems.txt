@@ -1,0 +1,316 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+
+Actor INVSIAmpGoggles : AmpGoggles replaces AmpGoggles
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSINewMedikit : NewMedikit replaces NewMedikit
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSIBulletBox : BulletBox replaces BulletBox
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSINewShellBox : NewShellBox replaces NewShellBox
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSIMissileBox : MissileBox replaces MissileBox
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSINewCellPack : NewCellPack replaces NewCellPack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSIModdedBackpack : ModdedBackpack replaces ModdedBackpack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIModdedRadSuit : ModdedRadSuit replaces ModdedRadSuit
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSINewHealthBonus : NewHealthBonus replaces NewHealthBonus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSINewMaxHealthBonus : NewMaxHealthBonus replaces NewMaxHealthBonus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSINewArmorBonus : NewArmorBonus replaces NewArmorBonus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSINewMaxArmorBonus : NewMaxArmorBonus replaces NewMaxArmorBonus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIModdedGreenArmor : ModdedGreenArmor replaces ModdedGreenArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSIRedArmor : RedArmor replaces RedArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSIModdedBlueArmor : ModdedBlueArmor replaces ModdedBlueArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIRedArmor : RedArmor replaces RedArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBerserkPack : BerserkPack replaces BerserkPack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIPureRage : PureRage replaces PureRage
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIModdedBlurSphere : ModdedBlurSphere replaces ModdedBlurSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIHasteSphere : HasteSphere replaces HasteSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIModdedSoulSphere : ModdedSoulSphere replaces ModdedSoulSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+/*
+Actor INVSILifeSphere : LifeSphere replaces LifeSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+*/
+Actor INVSIModdedMegaSphere : ModdedMegaSphere replaces ModdedMegaSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIUltraSphere : UltraSphere replaces UltraSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}

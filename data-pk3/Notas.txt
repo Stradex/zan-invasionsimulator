@@ -1,0 +1,19 @@
+/* Compatibilidad oficial con:
+
+- Heretic
+- Strife
+- Samsara v0.31 beta
+- Samsara extraheroes hb3
+- Hard Doom v69
+- STWolf 3D v4
+- Brutal Doom v20b
+- Brutal Doom 64 v2
+- Plutonia Simulator v1.2
+
+Hacerlo compatible con:
+
+Para hacer:
+
+- Programar waves por cada iwad [Es lo más lógico]
+
+*/

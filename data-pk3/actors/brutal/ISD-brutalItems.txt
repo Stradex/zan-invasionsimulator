@@ -1,0 +1,172 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+Actor INVSIInvulnerabilitySphere_ : InvulnerabilitySphere_ replaces InvulnerabilitySphere_
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSILifeSphere : LifeSphere replaces LifeSphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSISoulSphereHealth : SoulSphereHealth replaces SoulSphereHealth
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIEnergySphere : EnergySphere replaces EnergySphere
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINightVision : NightVision replaces NightVision
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIBerserl1 : Berserl1 replaces Berserl1
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIAmmoSuply : AmmoSuply replaces AmmoSuply
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIHealthPlus : HealthPlus replaces HealthPlus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIArmorShard : ArmorShard replaces ArmorShard
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIStimpack2 : Stimpack2 replaces Stimpack2
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIMedikit2 : Medikit2 replaces Medikit2
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSILightArmor : LightArmor replaces LightArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSIHeavyArmor : HeavyArmor replaces HeavyArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}

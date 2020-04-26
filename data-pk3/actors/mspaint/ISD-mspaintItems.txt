@@ -1,0 +1,159 @@
+/*
+* Generado automaticamente por un script de Javascript
+*/
+
+Actor INVSINewMedikit : NewMedikit replaces NewMedikit
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewStimpack : NewStimpack replaces NewStimpack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewGreenArmor : NewGreenArmor replaces NewGreenArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewBlueArmor : NewBlueArmor replaces NewBlueArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewRedArmor : NewRedArmor replaces NewRedArmor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewHealthBonus : NewHealthBonus replaces NewHealthBonus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewArmorBonus : NewArmorBonus replaces NewArmorBonus
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewBackpack : NewBackpack replaces NewBackpack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewClipBox : NewClipBox replaces NewClipBox
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewShellBox : NewShellBox replaces NewShellBox
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewRocketBox : NewRocketBox replaces NewRocketBox
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}
+
+Actor INVSINewCellPack : NewCellPack replaces NewCellPack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright
+		goto Idle
+	Idle:
+		TNT1 A 0 ACS_ExecuteAlways(11507, 0)
+		goto "Super::Spawn"
+	}
+}

@@ -1,0 +1,71 @@
+/*
+* Strife spawn Numbers
+*
+* AcolyteBlue - 151
+* AcolyteDGreen - 152
+* AcolyteGold - 153
+* AcolyteGray - 154
+* AcolyteLGreen - 155
+* AcolyteRed - 156
+* AcolyteRust - 157
+* AcolyteShadow - 158
+* AcolyteTan - 159
+* AcolyteToBe - 160
+* AlienSpectre1 - 161
+* AlienSpectre2 - 162
+* AlienSpectre3 - 163
+* AlienSpectre4 - 164
+* AlienSpectre5 - 165
+* Programmer - 166
+* Loremaster - 167
+* Sentinel - 168
+* Crusader - 169
+* Inquisitor - 170
+* Stalker - 171
+* Reaver - 172
+* Templar - 173
+**/
+
+actor _INVSIAcolyteBlue :  AcolyteBlue replaces  AcolyteBlue { SpawnID 151 }
+actor _INVSIAcolyteDGreen : AcolyteDGreen replaces AcolyteDGreen { SpawnID 152 }
+actor _INVSIAcolyteGold : AcolyteGold replaces AcolyteGold { SpawnID 153 }
+actor _INVSIAcolyteGray : AcolyteGray replaces AcolyteGray { SpawnID 154 }
+actor _INVSIAcolyteLGreen : AcolyteLGreen replaces AcolyteLGreen { SpawnID 155 }
+actor _INVSIAcolyteRed : AcolyteRed replaces AcolyteRed { SpawnID 156 }
+actor _INVSIAcolyteRust : AcolyteRust replaces AcolyteRust { SpawnID 157 }
+actor _INVSIAcolyteShadow : AcolyteShadow replaces AcolyteShadow { SpawnID 158 }
+actor _INVSIAcolyteTan : AcolyteTan replaces AcolyteTan { SpawnID 159 }
+actor _INVSIAcolyteToBe : AcolyteToBe replaces AcolyteToBe { SpawnID 160 }
+actor _INVSIAlienSpectre1 : AlienSpectre1 replaces AlienSpectre1 { SpawnID 161 }
+actor _INVSIAlienSpectre2 : AlienSpectre2 replaces AlienSpectre2{ SpawnID 162 }
+actor _INVSIAlienSpectre3 : AlienSpectre3 replaces AlienSpectre3 { SpawnID 163 }
+actor _INVSIAlienSpectre4 : AlienSpectre4 replaces AlienSpectre4 { SpawnID 164 }
+actor _INVSIAlienSpectre5 : AlienSpectre5 replaces AlienSpectre5 { SpawnID 165 }
+actor _INVSIProgrammer : Programmer replaces Programmer 
+{
+	SpawnID 166
+
+	States
+	{
+	Death://I'm sorry for the mods who replaces Strife's Programmer :(
+    PRGR L 7 Bright A_TossGib
+    PRGR M 7 Bright A_Scream
+    PRGR N 7 Bright A_TossGib
+    PRGR O 7 Bright A_NoBlocking
+    PRGR P 7 Bright A_TossGib
+    PRGR Q 7 Bright A_SpawnProgrammerBase
+    PRGR R 7 Bright
+    PRGR S 6 Bright
+    PRGR TUVW 5 Bright
+    PRGR X 32 Bright
+    //PRGR X -1 Bright A_ProgrammerDeath //Disallow exiting the map when programmer die
+    Stop
+	}
+
+}actor _INVSILoremaster : Loremaster replaces Loremaster { SpawnID 167 }
+actor _INVSISentinel : Sentinel replaces Sentinel { SpawnID 168 }
+actor _INVSICrusader : Crusader replaces Crusader { SpawnID 169 }
+actor _INVSIInquisitor : Inquisitor replaces Inquisitor { SpawnID 170 }
+actor _INVSIStalker : Stalker replaces Stalker { SpawnID 171 }
+actor _INVSIReaver : Reaver replaces Reaver { SpawnID 172 }
+actor _INVSITemplar : Templar replaces Templar { SpawnID 173 }

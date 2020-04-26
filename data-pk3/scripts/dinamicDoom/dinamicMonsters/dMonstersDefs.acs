@@ -1,0 +1,26 @@
+//#library "dMonstersDefs"
+
+//Numeros de los SCRIPT [9000-9099]
+
+#libdefine	SERVER_SPAWN_THING		9001
+#libdefine	SERVER_SPAWNER			9002
+
+//Numeros
+#libdefine	MAX_MONSTERS_MAP		3072
+#libdefine MTRACKER_MAXPOINTS		30
+
+int monstersPointsTracked[MAX_MONSTERS_MAP][MTRACKER_MAXPOINTS][4];
+
+int monstersSpawned = 0;
+
+int totalStartMonsters = 0;
+int totalEndMonsters = 0;
+int totalIntercambios = 0;
+
+int monstersPositions[MAX_MONSTERS_MAP][4];
+/*
+	0. Posicion X
+	1. Posicion Y
+	2. Posicion Z
+	3. Angulo
+*/

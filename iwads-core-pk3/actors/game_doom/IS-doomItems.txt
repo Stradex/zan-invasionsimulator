@@ -1,0 +1,14 @@
+ACTOR _INVSIMMegasphere : Megasphere  replaces Megasphere {}
+ACTOR _INVSIMSoulsphere : Soulsphere replaces Soulsphere {}
+ACTOR _INVSIMBerserk : Berserk replaces Berserk {}
+ACTOR _INVSIMArmorBonus : ArmorBonus replaces ArmorBonus {}
+ACTOR _INVSIMHealthBonus : HealthBonus replaces HealthBonus {}
+ACTOR _INVSIMBlueArmor : BlueArmor replaces BlueArmor {}
+ACTOR _INVSIMGreenArmor : GreenArmor replaces GreenArmor {}
+ACTOR _INVSIMStimpack : Stimpack replaces Stimpack {}
+ACTOR _INVSIMMedikit : Medikit replaces Medikit {}
+ACTOR _INVSIMBackpack : Backpack replaces Backpack { }
+ACTOR _INVSIMCellPack : CellPack replaces CellPack { }
+ACTOR _INVSIMClipbox : Clipbox replaces Clipbox { }
+ACTOR _INVSIMShellBox : ShellBox replaces ShellBox { }
+ACTOR _INVSIMRocketBox : RocketBox replaces RocketBox { }

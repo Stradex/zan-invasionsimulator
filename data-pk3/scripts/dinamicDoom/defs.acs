@@ -1,0 +1,57 @@
+//#library "defs"
+#libdefine MAXPLAYERS		32
+#libdefine MAX_ITERATIONS	400
+#libdefine MAXOLDPOS		12
+#libdefine MINPLAYERTID		1000
+#libdefine MAXIWADS			6
+
+#libdefine IWAD_DOOM		0 //Doom II
+#libdefine IWAD_HERETIC		1
+#libdefine IWAD_HEXEN		2
+#libdefine IWAD_STRIFE		3
+#libdefine IWAD_CHEX		4
+#libdefine IWAD_UDOOM		5 //Ultimate Doom
+
+//Strife Custom spawnIDs
+#libdefine STRIFE_ACOLYTEBLUE		151
+#libdefine STRIFE_ACOLYTEDGREEN		152
+#libdefine STRIFE_ACOLYTEGOLD		153
+#libdefine STRIFE_ACOLYTEGRAY		154
+#libdefine STRIFE_ACOLYTELGREEN		155
+#libdefine STRIFE_ACOLYTERED		156
+#libdefine STRIFE_ACOLYTERUST		157
+#libdefine STRIFE_ACOLYTESHADOW		158
+#libdefine STRIFE_ACOLYTETAN		159
+#libdefine STRIFE_ACOLYTETOBE		160
+#libdefine STRIFE_ALIENSPECTRE1		161
+#libdefine STRIFE_ALIENSPECTRE2		162
+#libdefine STRIFE_ALIENSPECTRE3		163
+#libdefine STRIFE_ALIENSPECTRE4		164
+#libdefine STRIFE_ALIENSPECTRE5		165
+#libdefine STRIFE_PROGRAMMER		166
+#libdefine STRIFE_LOREMASTER		167
+#libdefine STRIFE_SENTINEL			168
+#libdefine STRIFE_CRUSADER			169
+#libdefine STRIFE_INQUISITOR		170
+#libdefine STRIFE_STALKER			171
+#libdefine STRIFE_REAVER			172
+#libdefine STRIFE_TEMPLAR			173
+#libdefine STRIFE_ENTITYPOD			174
+
+bool gameIsSurvival = false;
+bool invasionStarted = false;
+int Palive[MAXPLAYERS]; //estado de los jugadores, si estan vivos o no
+int PactPos[MAXPLAYERS][3]; //Actual posicion de cada jugador en "tiempo real"
+int PlayerAngle[MAXPLAYERS];
+bool RecentRespawned[MAXPLAYERS];
+
+int PrecentPos[MAXPLAYERS][MAXOLDPOS][3]; //posiciones recientes del jugador cada medio segundo
+int PactOldPos[MAXPLAYERS][MAXOLDPOS][3]; //Posiciones del jugador hace 30 segundos y mas
+int cActOldPos[MAXPLAYERS]; //Indice de matriz actual actual guardando posiciones viejas en PactOldPos
+int cRecentPos[MAXPLAYERS]; //
+bool getSoulsphere[MAXPLAYERS];
+bool showingWeaponAcquiredHUD[MAXPLAYERS];
+int playerLives[MAXPLAYERS];
+
+int currentIwad = IWAD_DOOM;
+

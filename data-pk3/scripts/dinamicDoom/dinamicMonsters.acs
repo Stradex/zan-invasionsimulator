@@ -1,0 +1,21 @@
+//#library "dinamicMonsters"
+#include "dMonstersDefs.acs"
+
+script SERVER_SPAWN_THING (void)
+{
+	if (invasionStarted)
+		terminate;
+	if (monstersSpawned >= MAX_MONSTERS_MAP)
+		terminate;
+	monstersSpawned++;
+	
+	int tmpSpawnedPos = monstersSpawned-1;
+
+	//Recordar posicion de spawn del monstruito
+	monstersPositions[tmpSpawnedPos][0] = GetActorX(0);
+	monstersPositions[tmpSpawnedPos][1] = GetActorY(0);
+	monstersPositions[tmpSpawnedPos][2] = GetActorZ(0)+2.0;
+	monstersPositions[tmpSpawnedPos][3] = GetActorAngle(0);
+	
+	//log(s: "Monster tracked...");
+}

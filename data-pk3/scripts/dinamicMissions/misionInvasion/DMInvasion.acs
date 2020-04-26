@@ -1,0 +1,434 @@
+#include "DMInvasionDefs.acs"
+#include "DMInvasionHud.acs"
+#include "DMInvasionStrife.acs"
+/*
+str strDMInvMonsters[DMINVASION_MAXFASES][DMINVASION_MONSTBYFASE] = 
+
+str strDMInvNightmareMonsters[DMINVASION_MAXFASES][DMINVASION_MONSTBYFASE] = 
+
+#libdefine DMINVASION_MAXSPAWNS		100
+#libdefine DMINVASION_MINSPAWNS		30
+#libdefine DMINVASION_MSPAWNONCE	10 //Maximo de bichos a spwanear al mismo tiempo
+#libdefine DMINVASION_MINWAIT		2
+#libdefine DMINVASION_MAXWAIT		10
+
+#libdefine DMINVASION_MINPERCMAP	30 //30 porciento de los bichos del mapa como minimo
+#libdefine DMINVASION_MAXPERCMAP	75 //75 porciento de los bichos del mapa como maximo
+#libdefine DMINVASION_MAXREALSPAWN	125 //125 en total como maximo
+#libdefine DMINVASION_MINREALSPAWN	20 //20 en total como minimo
+
+	{"DinamicShotgunGuy", "DinamicZombieMan", "DinamicChaingunGuy", "DinamicWolfensteinSS", "DinamicZombieMan"}, //Fase 1
+	{"DinamicDoomImp", "DinamicDemon", "DinamicLostSoul", "DinamicSpectre", "DinamicCacodemon"}, //Fase 2
+	{"DinamicHellKnight", "DinamicRevenant", "DinamicArachnotron", "DinamicCacodemon", "DinamicHellKnight"}, //Fase 3
+	{"DinamicHellKnight", "DinamicBaronOfHell", "DinamicBaronOfHell", "DinamicFatso", "DinamicRevenant"} //Fase 4
+
+*/
+int waveSpawned;
+int originalPlayerCount=1;
+int ISMultiplier = 1.0;
+script DMINVASION_START (void)
+{
+	//dmdificultad = GetCvar("dm_skill");
+	
+	
+	if (dmdificultad < 0)
+		dmdificultad  = 0;
+	if (dmdificultad  >= DMINVASION_DIFICULTS)
+		dmdificultad  = DMINVASION_DIFICULTS-1;
+	ACS_ExecuteAlways(DMINVASION_GETPOINTS, 0);
+	delay(35*15); //10 segundos antes de empezar el primer wave
+	
+	ISMultiplier = GetCvar("is_wavemultiplier");
+
+	//POR SI LAS MOSCAS
+	ISMultiplier = ISMultiplier + FixedDiv(intToFixed(DMINVASION_CLASSICEXTRA), 100.0);
+	
+	//printBold(s: "multiplier", f: ISMultiplier);
+	originalPlayerCount = PlayerCount();
+	if (originalPlayerCount <= 0)
+		originalPlayerCount = 1;
+	int waitTime = DMINVASION_WAVECOUNT;
+	int waveTime =0;
+	int toSpawn=0;
+	int mPlayer, i;
+	int randPer=0;
+	//int oldSpawn = 0;
+	//dminvasionFase = 0;
+	dminvasionFase = GetCvar("is_wavestart");
+	int initialTotalMonsters = GetLevelInfo(LEVELINFO_TOTAL_MONSTERS);
+	if (initialTotalMonsters < 10)
+		initialTotalMonsters = 10;
+	int currentMonstersAlive = GetLevelInfo(LEVELINFO_TOTAL_MONSTERS) - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+	
+	if (currentIwad != IWAD_STRIFE)
+		ACS_ExecuteAlways(SERVER_ITEMSCHECK, 0); //Thanks to doomista for the idea
+	
+	ACS_ExecuteAlways(DMINVASION_SERVERHUD, 0); //hud system
+	
+	do
+	{
+		dmBigOnesSpawned = 0; //Reseteamos el conteo de spawn de bichos grandes a 0
+		mPlayer = maxPlayerNumberPlaying()+1;
+		for (i=0; i < mPlayer; i++)
+		{
+			if (!PlayerPlaying(i))
+				continue;
+			getSoulsphere[i] = true;
+			showingWeaponAcquiredHUD[i] = false;
+		}
+		ACS_ExecuteAlways(DMINVASION_COUNTDOWN, 0, waitTime);
+		if (currentIwad != IWAD_STRIFE)
+			ACS_ExecuteAlways(SERVER_RESPAWNITEMS, 0); //Thanks to doomista for the idea [check if this is the error]
+		delay(2);
+		do
+		{
+			delay(35);
+		}while(dminvasionCountdown);
+		//Aca empiezan a caer los bicharracos
+		//if (currentIwad != 3) //Para cualquier iwad que no sea strife
+		randPer = random(baseMonstersByWave[currentIwad][dminvasionFase][dmdificultad][1], baseMonstersByWave[currentIwad][dminvasionFase][dmdificultad][2]);
+		//else
+		//	randPer = random(baseMonstersByWaveStrife[dminvasionFase][dmdificultad][1], baseMonstersByWave[dminvasionFase][dmdificultad][2]);
+		
+		randPer = fixedRound(FixedDiv(FixedMul(intToFixed(randPer), intToFixed(dmTotalMonsters)), 100.0));
+		
+		//printBold(d: randPer, s:" extras en este mapa");
+		
+		toSpawn = random(baseMonstersByWave[currentIwad][dminvasionFase][dmdificultad][0], baseMonstersByWave[currentIwad][dminvasionFase][dmdificultad][1]);
+		if (originalPlayerCount > 0)
+			toSpawn = toSpawn*originalPlayerCount;
+		toSpawn = toSpawn + randPer;
+		if (toSpawn > DMINVASION_MAXREALSPAWN) //Para que no sea UNA BIZZAREADA
+			toSpawn = DMINVASION_MAXREALSPAWN;
+
+		//oldSpawn = toSpawn;
+		toSpawn = fixedRound(FixedMul(intToFixed(toSpawn), ISMultiplier));
+		
+		if (toSpawn > DMINVASION_MAXNONCRASH)
+			toSpawn = DMINVASION_MAXNONCRASH;
+
+		
+		//printBold(s: "Ibamos a spawnear ", d:oldSpawn, s:"\nPero con multiplier son: ", d:toSpawn);
+		invasionStarted = true;
+		initialTotalMonsters = GetLevelInfo(LEVELINFO_TOTAL_MONSTERS) - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+		int iniTotalKilled = GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+		int currentKilled = GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+		if (initialTotalMonsters < 10)
+			initialTotalMonsters = 10;
+			
+		ACS_ExecuteAlways(DMINVASION_SPAWN, 0, toSpawn);
+		waveSpawned=0;	
+
+		//int tmpProgress=;
+		do
+		{
+			//currentKilled = GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+			//waveProgress = fixedRound(FixedDiv(FixedMul(intToFixed(currentKilled - iniTotalKilled + DMINVASION_MINMONSNEXT), 100.0), intToFixed(toSpawn))) ;
+			waveProgress = calculateWaveProgress(toSpawn, iniTotalKilled);
+			delay(35);
+		}while(waveSpawned < (toSpawn-5)); //No hacer nada hasta que aunque sea, no spawnee una cantidad minima de bichos
+		waveTime = 0;
+		//printBold(s:"Se spawnearon todos los bicharracos");
+		int tmpProgress;
+		bool endByTimeEnabled = false;
+		do
+		{
+			currentKilled = GetLevelInfo(LEVELINFO_KILLED_MONSTERS) - iniTotalKilled;
+			//currentMonstersAlive = GetLevelInfo(LEVELINFO_TOTAL_MONSTERS) - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+			waveProgress = calculateWaveProgress(toSpawn, iniTotalKilled);
+			if (waveProgress >= 40 && !bigOnesAlive()) //Solo se activa la funcion del tiempo cuando se aniquila al 40% de los monstruos de la invasion
+			{
+				waveTime++;
+				endByTimeEnabled = true;
+				tmpProgress = fixedRound(FixedDiv(FixedMul(intToFixed(waveTime), 100.0), intToFixed(DMINVASION_MAXTIMEWAVE)));
+				if (tmpProgress > waveProgress)
+					waveProgress = tmpProgress;
+			}
+			
+			delay(35);
+		}while(((ThingCount(T_NONE, DMINVASION_MONSTERTID) > DMINVASION_MINMONSNEXT) || (currentKilled < absval(toSpawn-DMINVASION_MINMONSNEXT))) && ((waveTime < DMINVASION_MAXTIMEWAVE) || !endByTimeEnabled));
+		waveProgress = 100;
+		dminvasionFase++;
+	}while(dminvasionFase < wavesByDifficulty[dmdificultad]);
+	printBold(s: strInvasionFinalizada[DMLanguage]);
+	SetCvar("alwaysapplydmflags", 1);
+	SetCvar("sv_noexit", 0); //No permito irse del mapa a nadie
+	ConsoleCommand("alwaysapplydmflags true");
+	ConsoleCommand("sv_noexit false");
+	if (currentIwad == IWAD_STRIFE)
+		strifeAllowExit(getCurrentMapName());
+}
+
+function bool bigOnesAlive(void) //Checks if there're some big monsters spawned alive
+{
+
+	for (int i=0; i < DMINVASION_BIGONES; i++)
+	{
+		if (ThingCount(monstersBigOnes[i], DMINVASION_MONSTERTID))
+			return true;
+	}
+	return false;
+}
+
+function int calculateWaveProgress(int tSpawn, int iniMonsters)
+{
+	int mKilled = GetLevelInfo(LEVELINFO_KILLED_MONSTERS) - iniMonsters;
+	//int minToNext = absval(tSpawn - DMINVASION_MINMONSNEXT);
+	int tCounted = ThingCount(T_NONE, DMINVASION_MONSTERTID)-DMINVASION_MINMONSNEXT;
+	if (tCounted < 0)
+		tCounted = 0;
+	int wProgress = 100 - fixedRound(FixedDiv(FixedMul(intToFixed(tCounted), 100.0), intToFixed(tSpawn)));
+	int tmpProgress = mKilled;
+	if (tmpProgress < 0)
+			tmpProgress = 0;
+	tmpProgress = fixedRound(FixedDiv(FixedMul(intToFixed(tmpProgress+DMINVASION_MINMONSNEXT), 100.0), intToFixed(tSpawn)));
+	if (tmpProgress < wProgress)
+		wProgress = tmpProgress;
+		
+	if (wProgress < 0)
+		wProgress = 0;
+
+	if (wProgress > 100)
+		wProgress = 100;
+		
+	return wProgress;
+}
+
+script DMINVASION_COUNTDOWN (int left)
+{
+	dminvasionCountdown = true;
+	int i=0;
+	int j;
+	int minutos=0;
+	int segundos=0;
+	int waveLefts = wavesByDifficulty[dmdificultad] - dminvasionFase;
+	for (i=60; i <= left; i+=60)
+		minutos++;
+	segundos = left-(minutos*60);
+
+	if (minutos <=0 && segundos <= 30)
+		SetFont("BIGFONT");
+	else
+		SetFont("SMALLFONT");
+		
+	if (segundos >= 10)
+		HudMessageBold(s:strConteoWave[DMLanguage], s:": ", d:minutos, s:":", d:segundos, s:"\nWaves left: ", d:waveLefts, s:"\nCurrent Wave: ", d:(dminvasionFase+1); HUDMSG_PLAIN, DMMSGS_TIMEMSG, CR_RED, 1.5, 0.15, 0);
+	else
+		HudMessageBold(s:strConteoWave[DMLanguage], s:": ", d:minutos, s:":0", d:segundos, s:"\nWaves left: ", d:waveLefts, s:"\nCurrent Wave: ", d:(dminvasionFase+1); HUDMSG_PLAIN, DMMSGS_TIMEMSG, CR_RED, 1.5, 0.15, 0);
+
+	if (minutos <=0 && segundos <= 30)	
+		SetFont("SMALLFONT");
+	//ACS_ExecuteAlways(NOAMMO, 0, pSeeker+1000);
+	delay(35);
+	left--;
+	
+	if (minutos <=0 && segundos <=0)
+	{
+		dminvasionCountdown = false;
+		HudMessageBold(s:""; HUDMSG_PLAIN, DMMSGS_TIMEMSG, CR_RED, 1.5, 0.15, 1.0);
+	} else {
+		ACS_ExecuteAlways(DMINVASION_COUNTDOWN, 0, left);
+	}
+}
+
+script DMINVASION_SPAWN (int toSpawn)
+{
+	int invSpawned = 0;
+	int tmpWait, trys, spawnAtOnce, tmpSpawned, cPoint, classNro, spawnTrys, iterations, tmpX, tmpY, tmpZ;
+	int chanceType = 0;
+	//str strToSpawn="";
+	int typeToSpawn = -1;
+	int orgTypeSpawn = -1;
+	dmBigOnesSpawned = 0;
+	int bigOnesLimit = fixedRound(FixedMul(bigOnesPerPlayerDifficulty[dminvasionFase][dmdificultad], intToFixed(originalPlayerCount)));
+	//if (currentIwad == IWAD_STRIFE)
+	//	bigOnesLimit = fixedRound(FixedMul(bigOnesPerPlayerStrife[dmdificultad], intToFixed(originalPlayerCount)));
+		
+	iterations = 0;
+	/*str strDMInvMonsters[DMINVASION_MAXFASES][DMINVASION_FCHANCES][DMINVASION_MONSTBYFASE] = */
+	do
+	{
+	
+		tmpWait = random(DMINVASION_MINWAIT, DMINVASION_MAXWAIT);
+		spawnAtOnce = random(2, DMINVASION_MSPAWNONCE);
+		
+		if (originalPlayerCount > 1)
+			spawnAtOnce = spawnAtOnce + fixedRound(fixedDiv(fixedMul(intToFixed((originalPlayerCount-1)*spawnAtOnce), 50.0), 100.0));
+		
+		spawnAtOnce = fixedRound(FixedMul(intToFixed(spawnAtOnce), ISMultiplier));
+		
+		//printBold(s: "spawnAtOnce: ", d:spawnAtOnce);
+		tmpSpawned = 0;
+		do
+		{
+				trys = 0;
+				do
+				{
+					
+					spawnTrys = 0;
+					cPoint = random(0, dmTotalAnalizedPoints-1);
+					int veryCloseToPlayer = closestPlayerToReal(dminvPoints[cPoint][0], dminvPoints[cPoint][1], dminvPoints[cPoint][2], 19.0);
+					if ((veryCloseToPlayer != -1) && (random(0, 100) <= 75)) //Solo un 25% de chances de aparecer cerca
+					{
+						delay(1);
+						break;
+					}
+					classNro = random(0, DMINVASION_MONSTBYFASE-1);
+					trys++;
+					if (random(0, 100) <= 65)
+					{
+						chanceType = 0;
+					} else {
+						if (random(0, 100) <= 60)
+						{
+							chanceType = 1;
+						} else {
+							if (random(0, 100) <= 70)
+								chanceType = 2;
+							else
+								chanceType = 3;
+						}
+					}
+					//if (currentIwad != IWAD_STRIFE) //Para cualquier iwad que no sea strife
+						typeToSpawn = TypeDMInvMonsters[currentIwad][dminvasionFase][dmdificultad][chanceType][classNro];
+					//else
+					//	typeToSpawn = TypeDMInvMonstersStrife[dminvasionFase][dmdificultad][chanceType][classNro];
+
+					orgTypeSpawn = typeToSpawn;
+					
+					if ((dmBigOnesSpawned >= bigOnesLimit) && isBigOne(typeToSpawn))
+					{
+						//Log(s: "No, no se spawnea un carajo");
+						if (currentIwad != IWAD_STRIFE)
+							typeToSpawn = monstersMedOnes[random(0, DMINVASION_MIDONES-1)];
+						else
+							typeToSpawn = monstersMedOnesStrife[random(0, DMINVASION_MIDONES-1)];
+					}		
+					//if (currentIwad != IWAD_STRIFE) //Para cualquier iwad que no sea strife
+					//	typeToSpawn = iwadMonsterConverter(typeToSpawn); //compatibilidad multi-iwad
+
+					int nTid = getTidNotReserved();
+					if (Spawn("TeleportFog", dminvPoints[cPoint][0], dminvPoints[cPoint][1], dminvPoints[cPoint][2], nTid))
+					{
+						int tmpTid = getTidNotReserved();
+						int oldTotalMonsters = GetLevelInfo (LEVELINFO_TOTAL_MONSTERS); //Fix para spawner
+
+						Thing_SpawnNoFog(nTid, typeToSpawn, dminvPoints[cPoint][3], tmpTid);
+						delay(2); // Fix para spawner
+
+						int afterTotalMonsters = GetLevelInfo (LEVELINFO_TOTAL_MONSTERS); //Fix para spawner
+
+						if ((ThingCount(T_NONE, tmpTid) <= 0) && (afterTotalMonsters <= oldTotalMonsters))
+							break; //no se spawneo nada
+
+						//Log(s: "aca se llega");
+						if ((random(0, 100) <= DMINVASION_NIGHTCHANCES) && (ThingCount(T_NONE, tmpTid) > 0)) //No se aplica a bichos con spawner
+						{
+							int newMSpeed = FixedMul(GetActorProperty(tmpTid, APROP_Speed), 1.5);
+							//Log(s: "Vida bicho: ", d:GetActorProperty(tmpTid, APROP_Health));
+							int newAHealth = fixedRound(FixedMul(intToFixed(GetActorProperty(tmpTid, APROP_Health)), 1.35));
+							SetActorProperty(tmpTid, APROP_Speed, newMSpeed);
+							SetActorProperty(tmpTid, APROP_Health, newAHealth);
+						}
+						Thing_ChangeTID(tmpTid, DMINVASION_MONSTERTID); //Con los mods que usan randomspawners esto no funciona
+						if (isBigOne(orgTypeSpawn))
+							dmBigOnesSpawned++;
+
+						tmpSpawned++;
+						invSpawned++;
+						waveSpawned++;
+						//successSpawned = true;
+						break;
+					}
+					delay(1);
+				}while(trys < 10);
+		}while(tmpSpawned < spawnAtOnce);
+		//printBold(s: "Spawnee una primer oleada");
+		delay(35*tmpWait);
+	}while((invSpawned < toSpawn) && !dminvasionCountdown && (dminvasionFase < wavesByDifficulty[dmdificultad]));
+	//Log(s: "Termina la cosa");
+	//printBold(s: "Termine de spawnear");
+
+}
+
+script DMINVASION_GETPOINTS (void)
+{
+/*int dmcurrentpoints = 0;int itemsSpawnPoints[IT_MAXSPAWNPOINTS][3];
+
+int itemsTrackeds = 0;
+int dminvPoints[DMINVASION_MAXPOINTS][4]; //X, y, z, angle
+*/
+	int i, cPoint, mTracked, iterations, mPlayer, j, rand, tmpX, tmpY, tmpZ;
+	do
+	{
+		if (dmcurrentpoints >= DMINVASION_MAXPOINTS)
+		{
+			dmcurrentpoints = 0;
+				delay(70); //dos segundos de descanso pobre bicho
+		}
+		iterations = 0;
+		mTracked = 0;
+		rand = random(0, 100);
+		if (rand >= 60) //Elegir un punto de algun bicho
+		{
+			cPoint = random(0, monstersSpawned-1);
+			if (( monstersPositions[cPoint][0] != -1) && (monstersPositions[cPoint][1] != -1))
+			{
+			
+				dminvPoints[dmcurrentpoints][0] = monstersPositions[cPoint][0];
+				dminvPoints[dmcurrentpoints][1] = monstersPositions[cPoint][1];
+				dminvPoints[dmcurrentpoints][2] = monstersPositions[cPoint][2];
+				dminvPoints[dmcurrentpoints][3] = monstersPositions[cPoint][3];
+
+				dmcurrentpoints++;
+				
+				if (dmTotalAnalizedPoints < DMINVASION_MAXPOINTS)
+					dmTotalAnalizedPoints++;
+			}
+		} else {
+			if (rand >= 30)
+			{
+				mPlayer = maxPlayerNumberPlaying();
+				cPoint = random(0, mPlayer);
+				if (PlayerPlaying(cPoint)) //Elegir un punto de alguna posicion del jugador
+				{
+					if (random(0, 100) <= 50) //Posicion actual
+					{
+						dminvPoints[dmcurrentpoints][0] = PactPos[cPoint][0];
+						dminvPoints[dmcurrentpoints][1] = PactPos[cPoint][1];
+						dminvPoints[dmcurrentpoints][2] = PactPos[cPoint][2];
+						dminvPoints[dmcurrentpoints][3] = PlayerAngle[cPoint];
+						dmcurrentpoints++;
+						if (dmTotalAnalizedPoints < DMINVASION_MAXPOINTS)
+							dmTotalAnalizedPoints++;
+					} else { //Posiciones antiguas
+						j = random(0, cActOldPos[cPoint]);
+						if (PactOldPos[cPoint][j][0] != -1)
+						{
+							dminvPoints[dmcurrentpoints][0] = PactOldPos[cPoint][j][0];
+							dminvPoints[dmcurrentpoints][1] = PactOldPos[cPoint][j][1];
+							dminvPoints[dmcurrentpoints][2] = PactOldPos[cPoint][j][2];
+							dminvPoints[dmcurrentpoints][3] = PlayerAngle[cPoint];
+							dmcurrentpoints++;
+							if (dmTotalAnalizedPoints < DMINVASION_MAXPOINTS)
+								dmTotalAnalizedPoints++;
+						}
+					}
+				}
+			} else {
+				if (itemsTrackeds > 0)
+				{
+					cPoint = random(0, itemsTrackeds);
+					dminvPoints[dmcurrentpoints][0] = itemsSpawnPoints[cPoint][0];
+					dminvPoints[dmcurrentpoints][1] = itemsSpawnPoints[cPoint][1];
+					dminvPoints[dmcurrentpoints][2] = itemsSpawnPoints[cPoint][2];
+					dminvPoints[dmcurrentpoints][3] = 0;
+					dmcurrentpoints++;
+					if (dmTotalAnalizedPoints < DMINVASION_MAXPOINTS)
+							dmTotalAnalizedPoints++;
+				}
+			}
+		}
+		delay(1);
+	}while(1);
+}

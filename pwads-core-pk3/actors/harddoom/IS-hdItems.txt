@@ -1,0 +1,4 @@
+actor HDSoulSphere { }
+actor HDBlurSphere { }
+actor HDInvulnerabilitySphere { }
+actor HDMegaSphere { }

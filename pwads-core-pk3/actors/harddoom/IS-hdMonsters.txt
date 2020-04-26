@@ -1,0 +1,5 @@
+actor HDLostsoul { }
+actor HDArachnotron { }
+actor HDPainElemental { }
+
+//El resto de los monstruos son spawners, y el script tracker no funciona con spawners así que a dejarlos ahi
